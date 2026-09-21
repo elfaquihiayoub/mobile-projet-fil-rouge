@@ -1,0 +1,4 @@
+<div class="page-actions"><a class="btn primary" href="<?= url('rayon', 'create') ?>">+ Ajouter un rayon</a></div>
+<?php if (!$items): ?><div class="empty">Aucun rayon trouve.</div><?php else: ?><div class="table-wrap"><table><thead><tr><th>Nom du rayon</th><th>Emplacement</th><th>Actions</th></tr></thead><tbody>
+<?php foreach ($items as $item): ?><tr><td><?= e($item['nom_rayon']) ?></td><td><?= e($item['emplacement']) ?></td><td class="actions"><a class="btn sm" href="<?= url('rayon','show',['id'=>$item['id_rayon']]) ?>">Voir</a><a class="btn sm secondary" href="<?= url('rayon','edit',['id'=>$item['id_rayon']]) ?>">Modifier</a><form method="post" action="<?= url('rayon','delete') ?>" data-delete-form><input type="hidden" name="csrf_token" value="<?= csrf_token() ?>"><input type="hidden" name="id" value="<?= e((string)$item['id_rayon']) ?>"><button class="btn sm danger">Supprimer</button></form></td></tr><?php endforeach; ?>
+</tbody></table></div><?php endif; ?>

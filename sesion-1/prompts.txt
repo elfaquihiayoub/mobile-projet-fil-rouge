@@ -1,0 +1,2129 @@
+admin dashboard prompt design: 
+# Admin Dashboard — Professional UI/UX Design Prompt
+
+Design a **modern, professional, clean, and responsive Admin Dashboard UI** for a **library management system**.
+
+## IMPORTANT DEVELOPMENT CONSTRAINT
+
+The UI must be designed **strictly according to the existing system and use case provided below**.
+
+**Do NOT:**
+
+* Add new features that are not mentioned.
+* Change the application's workflow.
+* Change the business logic.
+* Add user/client functionality to the admin dashboard.
+* Add authentication flows, notifications, payments, reservations, or other features.
+* Invent additional CRUD modules.
+* Change the meaning or relationships of the existing entities.
+
+The goal is to create the **Admin Dashboard interface for managing the existing library system**, with CRUD operations and management screens matching the use case exactly.
+
+---
+
+# 1. Main Dashboard
+
+Create a professional admin dashboard homepage.
+
+At the top, display a clear page title:
+
+**Tableau de bord**
+
+Below it, display four statistics cards:
+
+### Adhérents
+
+Display:
+**125**
+
+Subtitle:
+**Total des adhérents**
+
+### Livres
+
+Display:
+**350**
+
+Subtitle:
+**Total des livres**
+
+### Emprunts
+
+Display:
+**42**
+
+Subtitle:
+**Emprunts en cours**
+
+### Retards
+
+Display:
+**7**
+
+Subtitle:
+**Emprunts en retard**
+
+The cards should be visually distinct but consistent with the overall design.
+
+Use simple, recognizable icons:
+
+* Adhérents → users icon
+* Livres → book icon
+* Emprunts → borrowing/book-open icon
+* Retards → warning/clock icon
+
+Do not add additional statistics.
+
+---
+
+# 2. Admin Layout
+
+Use a professional dashboard structure:
+
+### Left Sidebar
+
+The sidebar should contain:
+
+**Logo / Brand**
+
+* Library management system logo
+* Simple and professional
+
+**Navigation**
+
+* Tableau de bord
+* Adhérents
+* Rayons
+* Livres
+* Emprunts
+* Retours
+
+The currently active section should have a clear visual state.
+
+At the bottom of the sidebar:
+
+* Administrateur
+* Profile/avatar
+* Déconnexion
+
+Keep the sidebar simple and compact.
+
+---
+
+# 3. Header
+
+Create a clean top header containing:
+
+* Current page title
+* Small administrator profile area
+* Administrator name
+* Avatar
+
+Do not add unnecessary functionality.
+
+The header should remain visually lightweight.
+
+---
+
+# 4. Gestion des adhérents
+
+Create a dedicated **Adhérents** management page.
+
+The page must support exactly these operations:
+
+* Ajouter
+* Modifier
+* Supprimer
+* Consulter
+
+### Table
+
+Create a professional data table showing members.
+
+Example columns:
+
+* ID
+* Nom
+* Prénom
+* Email
+* Téléphone
+* Date d'inscription
+* Actions
+
+The Actions column should contain:
+
+* Voir
+* Modifier
+* Supprimer
+
+Add a clearly visible:
+
+**+ Ajouter un adhérent**
+
+button.
+
+### Add / Edit Form
+
+Use a clean form layout.
+
+The form should contain the existing member information fields from the system.
+
+Use:
+
+* Labels above inputs
+* Clear validation states
+* Required-field indicators where appropriate
+* Cancel button
+* Save button
+
+Do not invent additional member fields.
+
+### Delete
+
+When deleting an adherent, show a professional confirmation modal:
+
+**Supprimer cet adhérent ?**
+
+with:
+
+* Annuler
+* Supprimer
+
+---
+
+# 5. Gestion des rayons
+
+Create a dedicated **Rayons** management page.
+
+The page must support exactly:
+
+* Ajouter
+* Modifier
+* Supprimer
+* Consulter
+
+### Table
+
+Display:
+
+* ID
+* Nom du rayon
+* Description
+* Actions
+
+Actions:
+
+* Voir
+* Modifier
+* Supprimer
+
+Include:
+
+**+ Ajouter un rayon**
+
+Use the same design system as the other CRUD pages.
+
+---
+
+# 6. Gestion des livres
+
+Create a dedicated **Livres** management page.
+
+The page must support:
+
+* Ajouter
+* Modifier
+* Supprimer
+* Consulter
+
+### Table
+
+Display the book information belonging to the existing system.
+
+Use columns appropriate to the existing book entity without inventing new business data.
+
+Actions:
+
+* Voir
+* Modifier
+* Supprimer
+
+Primary button:
+
+**+ Ajouter un livre**
+
+### Book form
+
+Create a professional add/edit form using only the existing book fields.
+
+Use a clear two-column layout on desktop when appropriate and one-column layout on mobile.
+
+---
+
+# 7. Gestion des emprunts
+
+Create a dedicated **Emprunts** page.
+
+According to the existing use case, the administrator must be able to:
+
+* Effectuer un emprunt
+* Consulter les emprunts
+
+Do NOT add CRUD operations that are not part of this use case.
+
+### Table
+
+Display the existing borrowing information.
+
+Possible visual structure:
+
+* ID
+* Adhérent
+* Livre
+* Date d'emprunt
+* Date prévue de retour
+* Statut
+* Actions
+
+Use clear status badges such as:
+
+**En cours**
+
+and
+
+**En retard**
+
+Only use statuses that actually exist in the application's system.
+
+Add:
+
+**+ Effectuer un emprunt**
+
+as the primary action.
+
+---
+
+# 8. Gestion des retours
+
+Create a dedicated **Retours** page.
+
+The administrator must be able to:
+
+**Enregistrer retour**
+
+Create an interface showing current/active borrowings that can be returned.
+
+Each relevant borrowing should have a clear action:
+
+**Enregistrer le retour**
+
+When clicked, show a confirmation modal before recording the return.
+
+Example:
+
+**Enregistrer le retour de ce livre ?**
+
+Buttons:
+
+* Annuler
+* Confirmer le retour
+
+Keep this workflow simple.
+
+---
+
+# 9. Retards
+
+The dashboard already displays the number of late borrowings.
+
+The interface should also allow the administrator to clearly identify late borrowings through the existing **Emprunts** management interface.
+
+Use a subtle warning visual treatment for late records.
+
+Do not create a new business workflow for late management unless it already exists in the system.
+
+---
+
+# 10. Visual Design System
+
+Create a **professional library-management SaaS dashboard** aesthetic.
+
+### Style
+
+* Modern
+* Minimal
+* Professional
+* Clean
+* Elegant
+* Easy to scan
+* Suitable for an administration environment
+
+Avoid:
+
+* Excessive gradients
+* Excessive animations
+* Glassmorphism
+* Overly decorative elements
+* Huge typography
+* Crowded interfaces
+* Unnecessary charts
+
+The interface should feel like a real production administration system.
+
+---
+
+# 11. Colors
+
+Use a professional academic/library-inspired palette.
+
+Suggested direction:
+
+* Primary: deep blue / navy
+* Secondary: lighter blue
+* Background: very light gray
+* Cards: white
+* Main text: dark gray
+* Secondary text: muted gray
+* Success: green
+* Warning: amber
+* Danger: red
+
+Use colors consistently for:
+
+* Buttons
+* Status badges
+* Active navigation
+* Alerts
+* CRUD actions
+
+Do not make the interface overly colorful.
+
+---
+
+# 12. Typography
+
+Use a modern, highly readable sans-serif font.
+
+Recommended:
+
+**Inter**
+
+Typography hierarchy:
+
+* Dashboard title → large and bold
+* Section titles → medium/semibold
+* Table headers → medium
+* Body → regular
+* Secondary information → smaller muted text
+
+Maintain excellent readability and spacing.
+
+---
+
+# 13. CRUD UX
+
+All CRUD interfaces must follow the same design pattern.
+
+### Create
+
+Primary button:
+
+**Ajouter**
+
+Open a dedicated form page or modal depending on the existing application structure.
+
+### Read
+
+Use clean tables and detail views.
+
+### Update
+
+Use the same form as creation, populated with existing data.
+
+### Delete
+
+Always require confirmation.
+
+Use a destructive red button only for the final delete action.
+
+---
+
+# 14. Responsive Design
+
+The dashboard must be fully responsive.
+
+### Desktop
+
+* Fixed/collapsible sidebar
+* Spacious content area
+* Tables with comfortable spacing
+* Two-column forms where appropriate
+
+### Tablet
+
+* Compact sidebar
+* Responsive tables
+* Reduced spacing
+
+### Mobile
+
+* Sidebar becomes a mobile navigation menu
+* Cards stack vertically
+* Tables become horizontally scrollable or transform into responsive record cards
+* Forms become one column
+* Buttons remain easily accessible
+
+Do not remove any functionality on mobile.
+
+---
+
+# 15. Components
+
+Create a consistent reusable component system for:
+
+* Sidebar
+* Header
+* Statistic cards
+* Buttons
+* Tables
+* Forms
+* Inputs
+* Select fields
+* Status badges
+* Confirmation modals
+* Empty states
+* Pagination
+* Breadcrumbs where useful
+
+All pages must visually belong to the same application.
+
+---
+
+# 16. UX States
+
+Design the important interface states:
+
+### Loading
+
+Use subtle skeleton/loading states.
+
+### Empty state
+
+For example:
+
+**Aucun adhérent trouvé**
+
+with an appropriate action:
+
+**+ Ajouter un adhérent**
+
+### Error
+
+Display a clear, non-technical error message.
+
+### Success
+
+After successful CRUD operations, show a small success notification/toast.
+
+Examples:
+
+**Adhérent ajouté avec succès**
+
+**Livre modifié avec succès**
+
+**Retour enregistré avec succès**
+
+Keep notifications subtle and non-intrusive.
+
+---
+
+# 17. Dashboard Information Architecture
+
+The final navigation hierarchy must remain:
+
+Tableau de bord
+│
+├── Adhérents
+│   ├── Consulter
+│   ├── Ajouter
+│   ├── Modifier
+│   └── Supprimer
+│
+├── Rayons
+│   ├── Consulter
+│   ├── Ajouter
+│   ├── Modifier
+│   └── Supprimer
+│
+├── Livres
+│   ├── Consulter
+│   ├── Ajouter
+│   ├── Modifier
+│   └── Supprimer
+│
+├── Emprunts
+│   ├── Effectuer un emprunt
+│   └── Consulter les emprunts
+│
+└── Retours
+└── Enregistrer retour
+
+This hierarchy is fixed.
+
+Do not introduce additional modules or change this workflow.
+
+---
+
+# 18. Overall UX Goal
+
+The final product should look like a **real-world professional library administration dashboard**, suitable for presentation as a serious full-stack web development project.
+
+Prioritize:
+
+1. Clarity
+2. Consistency
+3. Simplicity
+4. Accessibility
+5. Responsive design
+6. Efficient CRUD management
+7. Visual hierarchy
+8. Professional spacing and typography
+
+The administrator should immediately understand:
+
+* What is happening in the library
+* How many members exist
+* How many books exist
+* How many borrowings are active
+* How many borrowings are late
+* Where to manage each entity
+* How to perform the allowed CRUD operations
+
+**Do not modify the application's existing logic or workflow. The UI/UX must adapt to the system, not the opposite.**
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+## creation prompt:
+# LIBRARY MANAGEMENT SYSTEM — ADMIN DASHBOARD
+
+You are a senior full-stack PHP developer with 10+ years of professional experience.
+
+Your task is to build a complete **Library Management System — Admin Dashboard** using:
+
+* PHP
+* MySQL
+* HTML5
+* CSS3
+* Vanilla JavaScript
+
+## ABSOLUTE RULE
+
+**DO NOT change the existing application flow, business logic, entities, relationships, or use case.**
+
+The implementation must follow the provided use case exactly.
+
+If you believe a change to the workflow, database structure, business logic, or functionality is necessary, **STOP and ask for approval first.**
+
+Do not silently introduce changes.
+
+---
+
+# 1. DESIGN SOURCE OF TRUTH
+
+The UI must reproduce the provided **Stitch project design** as closely as possible.
+
+## Stitch Project
+
+Title:
+
+**Library Admin Dashboard UI**
+
+Project ID:
+
+**7979357650345280598**
+
+## Stitch Screens
+
+Use these screens/assets as the visual reference:
+
+1. Design System
+   ID: `asset-stub-assets_b741c372bc6b4618856fdcbcc2ba9009`
+
+2. Logo Bibliothèque
+   ID: `893e13a3237b4f7cbeb86a0b7220fac0`
+
+3. Professional administrative portrait headshot of a French male librarian/system administrator in his 30s wearing glasses and a navy sweater, clean studio background, warm lighting, professional corporate avatar.
+   ID: `6e7377c5439044629ab1d55d0f9356e0`
+
+4. Gestion des adhérents
+   ID: `c0a4a8d37a64420dbdc18a05ae514f08`
+
+5. Tableau de bord
+   ID: `3c1ce7117d9e42f5a66613925ef60129`
+
+6. Gestion des rayons
+   ID: `8cb54bfb0529453f9cce51e753aac25c`
+
+7. Gestion des livres
+   ID: `50b912f772eb46409bcd13dbe8abb5a1`
+
+8. Gestion des emprunts
+   ID: `77a508aa5cf34892833b4e9ef1ac1877`
+
+9. Gestion des retours
+   ID: `7ca02c5617a24b3788cd2bc1366fd161`
+
+These Stitch screens are the **visual source of truth**.
+
+Match:
+
+* Layout
+* Colors
+* Typography
+* Spacing
+* Borders
+* Border radius
+* Shadows
+* Icons
+* Tables
+* Cards
+* Buttons
+* Forms
+* Sidebar
+* Header
+* Modals
+* Status badges
+* Responsive behavior
+
+Do not redesign the interface from scratch.
+
+Do not replace the design with a generic Bootstrap/AdminLTE dashboard.
+
+---
+
+# 2. TECHNOLOGY RESTRICTIONS
+
+Use ONLY:
+
+### Backend
+
+* PHP
+* PDO
+* MySQL
+
+### Frontend
+
+* HTML5
+* CSS3
+* Vanilla JavaScript
+
+Do NOT use:
+
+* Laravel
+* Symfony
+* CodeIgniter
+* WordPress
+* React
+* Vue
+* Angular
+* Next.js
+* Node.js
+* Tailwind
+* Bootstrap
+* jQuery
+* Alpine.js
+* Composer packages
+* External PHP frameworks
+* Frontend frameworks
+
+The application must work with a normal PHP environment such as:
+
+* XAMPP
+* Laragon
+* WAMP
+* Apache + PHP + MySQL
+
+---
+
+# 3. ARCHITECTURE
+
+Use a clean and simple **MVC architecture**.
+
+The project must be separated into:
+
+## Model
+
+Responsible for:
+
+* Database queries
+* CRUD operations
+* Business-data access
+* Relationships between entities
+
+Models must NOT contain HTML.
+
+## View
+
+Responsible for:
+
+* HTML
+* UI
+* Tables
+* Forms
+* Cards
+* Modals
+* Layout
+
+Views must NOT contain SQL queries.
+
+## Controller
+
+Responsible for:
+
+* Receiving requests
+* Validating input
+* Calling models
+* Preparing data
+* Sending data to views
+* Redirecting after successful operations
+
+Controllers must NOT contain large blocks of HTML.
+
+---
+
+# 4. RECOMMENDED PROJECT STRUCTURE
+
+Create a structure similar to:
+
+```text
+library-admin/
+│
+├── app/
+│   ├── controllers/
+│   │   ├── DashboardController.php
+│   │   ├── AdherentController.php
+│   │   ├── RayonController.php
+│   │   ├── LivreController.php
+│   │   ├── EmpruntController.php
+│   │   └── RetourController.php
+│   │
+│   ├── models/
+│   │   ├── Adherent.php
+│   │   ├── Rayon.php
+│   │   ├── Livre.php
+│   │   ├── Emprunt.php
+│   │   └── Retour.php
+│   │
+│   └── views/
+│       ├── layouts/
+│       │   ├── header.php
+│       │   ├── sidebar.php
+│       │   ├── footer.php
+│       │   └── layout.php
+│       │
+│       ├── dashboard/
+│       │   └── index.php
+│       │
+│       ├── adherents/
+│       │   ├── index.php
+│       │   ├── create.php
+│       │   ├── edit.php
+│       │   └── show.php
+│       │
+│       ├── rayons/
+│       │   ├── index.php
+│       │   ├── create.php
+│       │   ├── edit.php
+│       │   └── show.php
+│       │
+│       ├── livres/
+│       │   ├── index.php
+│       │   ├── create.php
+│       │   ├── edit.php
+│       │   └── show.php
+│       │
+│       ├── emprunts/
+│       │   ├── index.php
+│       │   ├── create.php
+│       │   └── show.php
+│       │
+│       └── retours/
+│           └── index.php
+│
+├── config/
+│   └── database.php
+│
+├── public/
+│   ├── index.php
+│   ├── assets/
+│   │   ├── css/
+│   │   │   ├── style.css
+│   │   │   ├── dashboard.css
+│   │   │   ├── tables.css
+│   │   │   └── forms.css
+│   │   │
+│   │   ├── js/
+│   │   │   ├── app.js
+│   │   │   ├── dashboard.js
+│   │   │   ├── modals.js
+│   │   │   └── validation.js
+│   │   │
+│   │   └── images/
+│   │       ├── logo.*
+│   │       └── admin-avatar.*
+│   │
+│   └── .htaccess
+│
+├── database/
+│   └── library.sql
+│
+└── README.md
+```
+
+You may adjust the structure slightly if required for a clean MVC implementation, but **do not change the application's functionality**.
+
+---
+
+# 5. DATABASE
+
+Use MySQL with PDO.
+
+Create a dedicated SQL file:
+
+```text
+database/library.sql
+```
+
+The database must represent the existing library system.
+
+The core entities are:
+
+* Adhérents
+* Rayons
+* Livres
+* Emprunts
+* Retours
+
+Respect the existing relationships.
+
+Do NOT invent unrelated entities.
+
+Do NOT add unnecessary tables.
+
+Do NOT change existing relationships simply for convenience.
+
+Use appropriate:
+
+* Primary keys
+* Foreign keys
+* NOT NULL constraints
+* UNIQUE constraints where logically required
+* Appropriate data types
+* Indexes where useful
+
+Use `INT AUTO_INCREMENT` for integer primary keys where appropriate.
+
+---
+
+# 6. DATABASE CONNECTION
+
+Create:
+
+```text
+config/database.php
+```
+
+Use PDO.
+
+The database connection must:
+
+* Use prepared statements
+* Handle connection errors cleanly
+* Use UTF-8 / utf8mb4
+* Keep credentials outside model files
+
+Example configuration concept:
+
+```php
+$host = 'localhost';
+$dbname = 'library';
+$username = 'root';
+$password = '';
+```
+
+Do not hard-code database queries inside views.
+
+---
+
+# 7. APPLICATION FLOW
+
+The application is an **ADMIN DASHBOARD**.
+
+The administrator manages the library.
+
+The exact use case is:
+
+```text
+ADMINISTRATEUR
+        │
+        ├── Gérer adhérents
+        │      ├── Ajouter
+        │      ├── Modifier
+        │      ├── Supprimer
+        │      └── Consulter
+        │
+        ├── Gérer les rayons
+        │      ├── Ajouter
+        │      ├── Modifier
+        │      ├── Supprimer
+        │      └── Consulter
+        │
+        ├── Gérer les livres
+        │      ├── Ajouter
+        │      ├── Modifier
+        │      ├── Supprimer
+        │      └── Consulter
+        │
+        ├── Gérer les emprunts
+        │      ├── Effectuer emprunt
+        │      └── Consulter emprunts
+        │
+        └── Gérer les retours
+               └── Enregistrer retour
+```
+
+This flow is FIXED.
+
+---
+
+# 8. DASHBOARD
+
+Create the main dashboard.
+
+Page title:
+
+**Tableau de bord**
+
+Display exactly four primary statistic cards:
+
+### Adhérents
+
+```text
+125
+Total des adhérents
+```
+
+### Livres
+
+```text
+350
+Total des livres
+```
+
+### Emprunts
+
+```text
+42
+Emprunts en cours
+```
+
+### Retards
+
+```text
+7
+Emprunts en retard
+```
+
+IMPORTANT:
+
+These numbers must eventually come from MySQL.
+
+Do NOT permanently hard-code these values in the production dashboard.
+
+Use model methods such as:
+
+```php
+$countAdherents()
+$countLivres()
+$countEmprunts()
+$countRetards()
+```
+
+The dashboard controller retrieves these values and passes them to the view.
+
+---
+
+# 9. SIDEBAR
+
+Implement the sidebar according to the Stitch design.
+
+Navigation:
+
+```text
+Tableau de bord
+Adhérents
+Rayons
+Livres
+Emprunts
+Retours
+```
+
+The active page must have a visually distinct state.
+
+At the bottom:
+
+```text
+Administrateur
+Déconnexion
+```
+
+Do not add additional navigation items.
+
+---
+
+# 10. HEADER
+
+Implement the header according to the Stitch design.
+
+Display:
+
+* Current page title
+* Administrator avatar
+* Administrator name
+
+Use the provided Stitch administrator portrait asset when available.
+
+Do not create a new visual style.
+
+---
+
+# 11. ADHÉRENTS CRUD
+
+Create complete CRUD functionality.
+
+Routes/actions must support:
+
+### Create
+
+Add an adherent.
+
+### Read
+
+Display all adherents.
+
+### Read one
+
+Display details of one adherent.
+
+### Update
+
+Edit an existing adherent.
+
+### Delete
+
+Delete an adherent.
+
+---
+
+## Adherents list
+
+Use the Stitch screen:
+
+**Gestion des adhérents**
+
+Display a professional table.
+
+Use the actual database fields.
+
+Do not invent unnecessary fields.
+
+The actions must include:
+
+```text
+Voir
+Modifier
+Supprimer
+```
+
+Primary action:
+
+```text
++ Ajouter un adhérent
+```
+
+---
+
+# 12. RAYONS CRUD
+
+Create complete CRUD functionality.
+
+Allowed:
+
+```text
+Ajouter
+Modifier
+Supprimer
+Consulter
+```
+
+Use the Stitch screen:
+
+**Gestion des rayons**
+
+Create:
+
+```text
+rayons/index.php
+rayons/create.php
+rayons/edit.php
+rayons/show.php
+```
+
+Use the existing database fields only.
+
+---
+
+# 13. LIVRES CRUD
+
+Create complete CRUD functionality.
+
+Allowed:
+
+```text
+Ajouter
+Modifier
+Supprimer
+Consulter
+```
+
+Use the Stitch screen:
+
+**Gestion des livres**
+
+The book form must use only fields existing in the database.
+
+If a book belongs to a rayon, provide a select field populated dynamically from the `rayons` table.
+
+Do not duplicate rayon data inside the book record.
+
+---
+
+# 14. EMPRUNTS
+
+The borrowing system is NOT a generic CRUD module.
+
+Follow the use case exactly.
+
+Allowed operations:
+
+```text
+Effectuer un emprunt
+Consulter les emprunts
+```
+
+Do NOT add:
+
+* Delete borrowing
+* Edit borrowing
+
+unless the existing application specification explicitly requires them.
+
+---
+
+## Create borrowing
+
+The administrator should be able to select:
+
+* Adhérent
+* Livre
+* Required borrowing information from the existing database structure
+
+Validate that the selected records exist.
+
+Prevent invalid borrowing operations.
+
+For example, if the business rules already indicate that an unavailable book cannot be borrowed, enforce that rule.
+
+Do not invent new borrowing rules without approval.
+
+---
+
+# 15. RETOURS
+
+The return workflow is:
+
+```text
+Gérer les retours
+        ↓
+Enregistrer retour
+```
+
+The administrator should see relevant active borrowings and be able to record a return.
+
+The return action must update the appropriate database information according to the existing schema.
+
+Use a confirmation step before recording the return.
+
+Example:
+
+```text
+Enregistrer le retour de ce livre ?
+
+[Annuler] [Confirmer le retour]
+```
+
+Do not create additional return workflows.
+
+---
+
+# 16. RETARDS
+
+The dashboard must calculate late borrowings from the database.
+
+A borrowing should only be considered late according to the existing borrowing/return data and date logic.
+
+Do not invent a separate "retard management" module.
+
+Late records can be visually indicated in the Emprunts interface.
+
+Use the design's warning/status style.
+
+---
+
+# 17. FORMS
+
+All forms must follow the Stitch design.
+
+Requirements:
+
+* Clear labels
+* Proper spacing
+* Consistent input heights
+* Clear focus state
+* Validation messages
+* Required fields
+* Accessible labels
+* Consistent buttons
+
+Buttons:
+
+Primary:
+
+```text
+Enregistrer
+```
+
+Secondary:
+
+```text
+Annuler
+```
+
+Danger:
+
+```text
+Supprimer
+```
+
+Do not create inconsistent button styles between modules.
+
+---
+
+# 18. DELETE CONFIRMATION
+
+Every destructive delete action must require confirmation.
+
+Use a modal.
+
+Example:
+
+```text
+Supprimer cet élément ?
+
+Cette action est irréversible.
+
+[Annuler] [Supprimer]
+```
+
+Do not delete records immediately from a table click.
+
+Use JavaScript only for the UI confirmation.
+
+The actual deletion must still be performed securely on the PHP backend.
+
+---
+
+# 19. SECURITY
+
+Implement basic professional PHP security.
+
+## SQL Injection
+
+Use PDO prepared statements everywhere.
+
+Never concatenate user input directly into SQL queries.
+
+## XSS
+
+Escape output using:
+
+```php
+htmlspecialchars()
+```
+
+where appropriate.
+
+## CSRF
+
+Use CSRF tokens for:
+
+* Create
+* Update
+* Delete
+* Borrow
+* Return
+
+Do not rely only on JavaScript validation.
+
+## Server-side validation
+
+Every form must be validated on the server.
+
+JavaScript validation is only supplementary.
+
+## Authentication
+
+If the existing system already contains authentication, integrate with it without changing the authentication flow.
+
+If authentication has not yet been implemented, **do not invent a new authentication system without asking first**.
+
+---
+
+# 20. PHP CODE QUALITY
+
+Write clean, readable PHP.
+
+Use:
+
+* Classes
+* Methods
+* Type hints where appropriate
+* Clear variable names
+* Small reusable methods
+* PDO prepared statements
+
+Avoid:
+
+* Huge controllers
+* Huge model classes
+* SQL in views
+* HTML inside models
+* Repeated database connection code
+* Duplicate CRUD logic
+* Spaghetti PHP
+* `mysqli`
+* Global database queries
+
+---
+
+# 21. MVC RESPONSIBILITIES
+
+Follow this separation strictly.
+
+### Model
+
+Example:
+
+```php
+class Adherent
+{
+    private PDO $db;
+
+    public function getAll(): array
+    {
+        // database query
+    }
+
+    public function find(int $id): ?array
+    {
+        // database query
+    }
+
+    public function create(array $data): bool
+    {
+        // database query
+    }
+
+    public function update(int $id, array $data): bool
+    {
+        // database query
+    }
+
+    public function delete(int $id): bool
+    {
+        // database query
+    }
+}
+```
+
+### Controller
+
+Example responsibility:
+
+```text
+Receive request
+↓
+Validate input
+↓
+Call Model
+↓
+Prepare result
+↓
+Load View
+```
+
+### View
+
+Only presentation.
+
+Do not perform SQL queries from:
+
+```text
+app/views/
+```
+
+---
+
+# 22. ROUTING
+
+Use a simple PHP routing mechanism compatible with Apache.
+
+Example concept:
+
+```text
+/index.php?controller=dashboard&action=index
+```
+
+or clean URLs if supported by `.htaccess`.
+
+Do not install a framework just to implement routing.
+
+The routing system must remain simple and understandable for a student full-stack project.
+
+---
+
+# 23. RESPONSIVE DESIGN
+
+The application must be fully responsive.
+
+### Desktop
+
+Match Stitch desktop design.
+
+Use:
+
+* Sidebar
+* Header
+* Cards
+* Tables
+* Forms
+
+### Tablet
+
+Adapt spacing and content width.
+
+### Mobile
+
+The sidebar should become a mobile menu.
+
+Cards should stack.
+
+Forms should become one column.
+
+Tables should remain usable through:
+
+* Horizontal scrolling
+* Or an appropriate responsive table layout
+
+Do not remove CRUD functionality on mobile.
+
+---
+
+# 24. JAVASCRIPT
+
+Use only Vanilla JavaScript.
+
+JavaScript should handle UI behavior such as:
+
+* Mobile sidebar
+* Confirmation modals
+* Form interactions
+* Client-side validation
+* Toast notifications
+* UI state changes
+
+Do not move business logic into JavaScript.
+
+Critical operations must remain server-side PHP.
+
+Do not use AJAX unless it is genuinely necessary for the existing workflow.
+
+Prefer simple normal PHP form submissions and redirects.
+
+---
+
+# 25. SUCCESS / ERROR MESSAGES
+
+Use clean feedback messages.
+
+Examples:
+
+```text
+Adhérent ajouté avec succès.
+Adhérent modifié avec succès.
+Adhérent supprimé avec succès.
+
+Rayon ajouté avec succès.
+Rayon modifié avec succès.
+Rayon supprimé avec succès.
+
+Livre ajouté avec succès.
+Livre modifié avec succès.
+Livre supprimé avec succès.
+
+Emprunt enregistré avec succès.
+Retour enregistré avec succès.
+```
+
+Errors should be clear and user-friendly.
+
+Never expose:
+
+* SQL errors
+* Database credentials
+* PHP stack traces
+* Internal file paths
+
+in the normal production UI.
+
+---
+
+# 26. EMPTY STATES
+
+Every list page must handle an empty database gracefully.
+
+Example:
+
+```text
+Aucun adhérent trouvé.
+
++ Ajouter un adhérent
+```
+
+Similar states should exist for:
+
+* Rayons
+* Livres
+* Emprunts
+
+Follow the Stitch visual style.
+
+---
+
+# 27. TABLE UX
+
+Tables must be professional and readable.
+
+Include:
+
+* Header
+* Row spacing
+* Hover state
+* Action buttons
+* Status badges where appropriate
+* Responsive behavior
+
+Do not overcrowd tables with unnecessary information.
+
+---
+
+# 28. DESIGN SYSTEM
+
+Create reusable CSS variables based on the Stitch design.
+
+For example:
+
+```css
+:root {
+    --primary: ...;
+    --primary-dark: ...;
+    --background: ...;
+    --surface: ...;
+    --text: ...;
+    --muted: ...;
+    --border: ...;
+    --success: ...;
+    --warning: ...;
+    --danger: ...;
+    --radius: ...;
+}
+```
+
+Do not arbitrarily choose a different visual identity.
+
+Extract the actual visual direction from the Stitch Design System screen.
+
+---
+
+# 29. ASSETS
+
+Use the provided Stitch assets when available.
+
+The logo should correspond to:
+
+**Logo Bibliothèque**
+
+The administrator avatar should correspond to:
+
+**Professional administrative portrait**
+
+Do not replace the supplied visual assets with unrelated images.
+
+If hosted Stitch assets need to be retrieved, use a command-line utility such as:
+
+```bash
+curl -L
+```
+
+to download the hosted asset URLs.
+
+Store local project assets in:
+
+```text
+public/assets/images/
+```
+
+Do not hotlink external assets in the final application unless absolutely necessary.
+
+---
+
+# 30. ACCESSIBILITY
+
+Implement basic accessibility:
+
+* Semantic HTML
+* `<label>` for inputs
+* Keyboard-accessible buttons
+* Visible focus states
+* Appropriate button types
+* Accessible modal behavior
+* Good color contrast
+* Meaningful link text
+
+Icons must not be the only indication of an action.
+
+---
+
+# 31. DATABASE TRANSACTIONS
+
+For operations involving multiple related database changes, use PDO transactions when appropriate.
+
+For example:
+
+```text
+Record return
+↓
+Update borrowing status
+↓
+Update related book state if required by existing schema
+↓
+Commit
+```
+
+Only implement changes that correspond to the existing business rules.
+
+If the exact relationship is unclear, ask before inventing behavior.
+
+---
+
+# 32. POST/REDIRECT/GET
+
+For create/update/delete actions, prefer:
+
+```text
+POST
+↓
+Process
+↓
+Redirect
+↓
+GET
+```
+
+Do not refresh/re-submit forms unnecessarily.
+
+Use session flash messages for success/error feedback where appropriate.
+
+---
+
+# 33. CODE ORGANIZATION
+
+Do not create one enormous PHP file containing the entire application.
+
+Keep:
+
+```text
+Models
+Controllers
+Views
+Configuration
+Assets
+Database
+```
+
+separated.
+
+Reusable layout components should be shared.
+
+For example:
+
+```php
+require view('layouts/header');
+require view('layouts/sidebar');
+```
+
+Avoid copying the complete sidebar/header into every page.
+
+---
+
+# 34. README
+
+Create a professional `README.md`.
+
+Include:
+
+## Project
+
+Library Management System — Admin Dashboard
+
+## Technologies
+
+* PHP
+* MySQL
+* HTML
+* CSS
+* JavaScript
+
+## Architecture
+
+MVC
+
+## Installation
+
+Explain:
+
+1. Clone/copy project
+2. Create MySQL database
+3. Import `database/library.sql`
+4. Configure database credentials
+5. Start Apache/MySQL
+6. Open the application
+
+## Project structure
+
+Explain the MVC folders.
+
+## Features
+
+Document only the implemented features.
+
+---
+
+# 35. DEVELOPMENT PROCESS
+
+Follow this implementation order:
+
+### STEP 1
+
+Inspect the existing project structure and files.
+
+Do NOT immediately rewrite everything.
+
+### STEP 2
+
+Inspect the existing database/schema.
+
+Understand:
+
+* Tables
+* Columns
+* Primary keys
+* Foreign keys
+* Relationships
+
+### STEP 3
+
+Inspect the Stitch design references.
+
+Identify:
+
+* Colors
+* Typography
+* Layout
+* Components
+* Spacing
+* Icons
+* Responsive behavior
+
+### STEP 4
+
+Create the MVC foundation.
+
+### STEP 5
+
+Create the database connection.
+
+### STEP 6
+
+Implement shared layout:
+
+```text
+Sidebar
+Header
+Footer
+Main layout
+```
+
+### STEP 7
+
+Implement Dashboard.
+
+### STEP 8
+
+Implement Adhérents CRUD.
+
+### STEP 9
+
+Implement Rayons CRUD.
+
+### STEP 10
+
+Implement Livres CRUD.
+
+### STEP 11
+
+Implement Emprunts.
+
+### STEP 12
+
+Implement Retours.
+
+### STEP 13
+
+Implement validation and security.
+
+### STEP 14
+
+Implement responsive behavior.
+
+### STEP 15
+
+Test every workflow.
+
+---
+
+# 36. TESTING CHECKLIST
+
+Before considering the project complete, verify:
+
+## Dashboard
+
+* [ ] Dashboard loads
+* [ ] Statistics come from database
+* [ ] Navigation works
+* [ ] Responsive layout works
+
+## Adhérents
+
+* [ ] List
+* [ ] View
+* [ ] Add
+* [ ] Edit
+* [ ] Delete
+* [ ] Delete confirmation
+* [ ] Validation
+* [ ] Database persistence
+
+## Rayons
+
+* [ ] List
+* [ ] View
+* [ ] Add
+* [ ] Edit
+* [ ] Delete
+* [ ] Validation
+* [ ] Database persistence
+
+## Livres
+
+* [ ] List
+* [ ] View
+* [ ] Add
+* [ ] Edit
+* [ ] Delete
+* [ ] Rayon relationship works
+* [ ] Validation
+* [ ] Database persistence
+
+## Emprunts
+
+* [ ] List
+* [ ] Create borrowing
+* [ ] Member selection works
+* [ ] Book selection works
+* [ ] Database persistence
+* [ ] Status displayed correctly
+* [ ] Late borrowing detection works according to existing rules
+
+## Retours
+
+* [ ] Active borrowings displayed
+* [ ] Return action works
+* [ ] Confirmation works
+* [ ] Database updated correctly
+* [ ] Dashboard statistics update accordingly
+
+## Security
+
+* [ ] Prepared statements
+* [ ] Output escaping
+* [ ] CSRF protection
+* [ ] Server-side validation
+* [ ] No sensitive database errors exposed
+
+## UI
+
+* [ ] Matches Stitch design
+* [ ] Sidebar works
+* [ ] Header works
+* [ ] Tables work
+* [ ] Forms work
+* [ ] Modals work
+* [ ] Mobile layout works
+* [ ] No horizontal page overflow
+* [ ] Consistent spacing
+* [ ] Consistent buttons
+* [ ] Consistent typography
+
+---
+
+# 37. IMPORTANT — DO NOT OVERENGINEER
+
+This is a professional student-level MVC application.
+
+Keep the architecture:
+
+**Clean + understandable + maintainable.**
+
+Do not introduce:
+
+* Repository pattern
+* Service containers
+* Dependency injection frameworks
+* ORM
+* API architecture
+* Microservices
+* React
+* SPA architecture
+* Complex routing packages
+* Unnecessary design patterns
+
+unless explicitly requested later.
+
+Use classic PHP MVC with PDO.
+
+---
+
+# 38. MOST IMPORTANT RULE
+
+The existing application workflow has priority over developer preference.
+
+The Stitch design controls the visual implementation.
+
+The use case controls the functionality.
+
+The database controls the data.
+
+MVC controls the code organization.
+
+Therefore:
+
+```text
+USE CASE
+    ↓
+BUSINESS LOGIC
+    ↓
+DATABASE
+    ↓
+MVC IMPLEMENTATION
+    ↓
+STITCH UI
+```
+
+Do not reverse this logic.
+
+Do not modify the use case simply because a different implementation would be easier.
+
+---
+
+# FINAL OBJECTIVE
+
+Build a complete, functional and professional:
+
+**Library Management System — Admin Dashboard**
+
+with:
+
+```text
+PHP
+MySQL
+HTML
+CSS
+Vanilla JavaScript
+MVC
+PDO
+```
+
+The final application must provide:
+
+```text
+Dashboard
+│
+├── Adhérents
+│   └── Full CRUD
+│
+├── Rayons
+│   └── Full CRUD
+│
+├── Livres
+│   └── Full CRUD
+│
+├── Emprunts
+│   ├── Effectuer emprunt
+│   └── Consulter emprunts
+│
+└── Retours
+    └── Enregistrer retour
+```
+
+The final UI must visually follow the provided **Stitch Library Admin Dashboard UI**.
+
+The final code must be clean MVC PHP and must not use any framework.
+
+**Do not change the application flow.**
+
+**Do not invent features.**
+
+**Do not invent database relationships.**
+
+**Do not replace the Stitch design.**
+
+**If an important requirement is ambiguous or implementing it would require changing the existing system, stop and ask before making that change.**

@@ -1,0 +1,3 @@
+<?php if (!$items): ?><div class="empty">Aucun emprunt actif a retourner.</div><?php else: ?><div class="table-wrap"><table><thead><tr><th>Adherent</th><th>Livre</th><th>Date emprunt</th><th>Retour prevu</th><th>Action</th></tr></thead><tbody>
+<?php foreach ($items as $item): ?><tr><td><?= e($item['prenom'].' '.$item['nom']) ?></td><td><?= e($item['titre']) ?></td><td><?= e($item['date_emprunt']) ?></td><td><?= e($item['date_retour_prevue']) ?></td><td><a class="btn sm primary" href="<?= url('retour','confirm',['id'=>$item['id_emprunt']]) ?>">Enregistrer retour</a></td></tr><?php endforeach; ?>
+</tbody></table></div><?php endif; ?>
