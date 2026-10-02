@@ -1,0 +1,2 @@
+<?php $item = $item ?? null; ?>
+<?php if (!$item): ?><div class="empty">Livre introuvable.</div><?php else: ?><div class="detail-card"><p><strong>Titre</strong><?= e($item['titre']) ?></p><p><strong>Auteur</strong><?= e($item['auteur']) ?></p><p><strong>ISBN</strong><?= e($item['isbn']) ?></p><p><strong>Etat</strong><?= e($item['etat']) ?></p><p><strong>Rayon</strong><?= e($item['nom_rayon']) ?></p><a class="btn secondary" href="<?= url('livre') ?>">Retour</a></div><?php endif; ?>

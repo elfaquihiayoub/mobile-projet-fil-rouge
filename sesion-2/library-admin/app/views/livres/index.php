@@ -1,0 +1,5 @@
+<?php $items = $items ?? []; ?>
+<div class="page-actions"><a class="btn primary" href="<?= url('livre', 'create') ?>">+ Ajouter un livre</a></div>
+<?php if (!$items): ?><div class="empty">Aucun livre trouve.</div><?php else: ?><div class="table-wrap"><table><thead><tr><th>Titre</th><th>Auteur</th><th>ISBN</th><th>Etat</th><th>Rayon</th><th>Actions</th></tr></thead><tbody>
+<?php foreach ($items as $item): ?><tr><td><?= e($item['titre']) ?></td><td><?= e($item['auteur']) ?></td><td><?= e($item['isbn']) ?></td><td><span class="badge"><?= e($item['etat']) ?></span></td><td><?= e($item['nom_rayon']) ?></td><td class="actions"><a class="btn sm" href="<?= url('livre','show',['id'=>$item['id_exemplaire']]) ?>">Voir</a><a class="btn sm secondary" href="<?= url('livre','edit',['id'=>$item['id_exemplaire']]) ?>">Modifier</a><form method="post" action="<?= url('livre','delete') ?>" data-delete-form><input type="hidden" name="csrf_token" value="<?= csrf_token() ?>"><input type="hidden" name="id" value="<?= e((string)$item['id_exemplaire']) ?>"><button class="btn sm danger">Supprimer</button></form></td></tr><?php endforeach; ?>
+</tbody></table></div><?php endif; ?>

@@ -1,0 +1,2 @@
+<?php $item = $item ?? null; ?>
+<?php if (!$item): ?><div class="empty">Adherent introuvable.</div><?php else: ?><div class="detail-card"><p><strong>Nom</strong><?= e($item['nom']) ?></p><p><strong>Prenom</strong><?= e($item['prenom']) ?></p><p><strong>Email</strong><?= e($item['email']) ?></p><p><strong>Telephone</strong><?= e($item['telephone']) ?></p><a class="btn secondary" href="<?= url('adherent') ?>">Retour</a></div><?php endif; ?>

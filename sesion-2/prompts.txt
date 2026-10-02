@@ -1,0 +1,1018 @@
+# LIBRARY MANAGEMENT SYSTEM — ADAPT EXISTING PROJECT TO THE CURRENT WEB DEVELOPMENT SESSION
+
+You are a **senior full-stack web developer with 10+ years of professional experience**, specialized in PHP, JavaScript, REST APIs, POO, frontend architecture, and maintainable student-level web applications.
+
+You are working on an **existing Library Management System** that has already been designed and implemented.
+
+Your task is **NOT to rebuild the application from scratch**.
+
+Your task is to **adapt the existing application so that it demonstrates the concepts taught in the current development session**, while preserving everything that is unrelated to those lessons.
+
+---
+
+# 1. MOST IMPORTANT RULE — MINIMAL CHANGE
+
+## DO NOT REBUILD THE APPLICATION
+
+First, inspect the existing project completely:
+
+* project structure
+* PHP files
+* classes
+* controllers
+* views
+* JavaScript
+* CSS
+* database structure
+* CRUD operations
+* relationships
+* existing UI
+* existing workflows
+
+Understand how the application currently works before modifying anything.
+
+### Preserve everything that does NOT directly concern the current lessons.
+
+Do NOT unnecessarily change:
+
+* business logic
+* database structure
+* database relationships
+* entity names
+* existing fields
+* existing CRUD functionality
+* existing validation rules
+* existing library workflows
+* visual identity
+* professional UI
+* Stitch-based design
+* existing responsive behavior
+* security mechanisms
+* PDO/MySQL
+* MVC structure
+
+The goal is:
+
+> **Adapt the existing application to the lessons, not redesign the application around the lessons.**
+
+If an existing part already satisfies a lesson, **keep it**.
+
+If something does not affect the current session, **do not touch it**.
+
+---
+
+# 2. EXISTING APPLICATION
+
+The application is a:
+
+**Library Management System — Admin Dashboard**
+
+Main entities:
+
+* Adhérents
+* Rayons
+* Livres
+* Emprunts
+* Retours
+
+Existing functionality must remain functional.
+
+The original application already uses:
+
+* PHP
+* MySQL
+* PDO
+* HTML
+* CSS
+* Vanilla JavaScript
+* MVC architecture
+
+The existing professional UI and business workflow must remain intact.
+
+---
+
+# 3. CURRENT SESSION OBJECTIVES
+
+Adapt the application to demonstrate the following concepts:
+
+### Architecture
+
+* Identifier et séparer les composants
+* Séparer les responsabilités
+* Définir la communication entre les composants
+
+### Backend / POO
+
+* Créer et manipuler un objet
+* Encapsuler les données d'un objet
+* Utiliser des classes et méthodes
+* Séparer les responsabilités entre les classes
+
+### HTTP / API
+
+* Comprendre HTTP
+* Utiliser une API
+* Structurer une API
+* Utiliser HTTP methods appropriately:
+
+  * GET
+  * POST
+  * PUT
+  * DELETE
+
+### Frontend
+
+* Manipuler le DOM
+* Gérer les interactions utilisateur
+* Utiliser JavaScript
+* Communiquer avec une API avec `fetch()`
+* Utiliser AJAX / Fetch without full page reloads
+
+### Interface
+
+* Structurer l'interface avec Tailwind/utilitaires if the current frontend already supports them
+* Maintain the existing professional UI
+* Keep reusable interface components
+
+### SPA concept
+
+The application should progressively behave like a **Single Page Application** for the management interfaces where appropriate:
+
+* avoid unnecessary full-page reloads
+* load data dynamically
+* update tables dynamically
+* submit forms through Fetch
+* update the DOM after operations
+* keep the user on the same management interface
+
+Do NOT introduce React, Vue, Angular, or another frontend framework.
+
+Use **Vanilla JavaScript**.
+
+---
+
+# 4. DO NOT FORCE JSON STORAGE
+
+The current Library application already uses **MySQL + PDO**.
+
+Do NOT replace MySQL with JSON simply because another exercise used JSON.
+
+JSON should be used where it belongs:
+
+* HTTP request/response data
+* API communication
+* JavaScript ↔ PHP data exchange
+
+The existing MySQL database remains the application's persistent data storage.
+
+Do NOT migrate the database to JSON.
+
+---
+
+# 5. KEEP MVC
+
+The existing MVC architecture should remain.
+
+Do NOT replace MVC with another architecture.
+
+Instead, introduce the API layer **where it is useful**.
+
+The target architecture should conceptually become:
+
+```text
+User
+  ↓
+HTML / UI
+  ↓
+Vanilla JavaScript
+  ↓
+Fetch()
+  ↓
+PHP API
+  ↓
+Controller / Application Logic
+  ↓
+POO Classes / Repository or Model
+  ↓
+PDO
+  ↓
+MySQL
+```
+
+Do not create unnecessary architectural layers.
+
+If the existing MVC structure already provides a clean equivalent, reuse it.
+
+---
+
+# 6. POO — ENTITIES
+
+The existing entities should become/use proper PHP classes where they are not already classes.
+
+Examples:
+
+```text
+Adherent
+Rayon
+Livre
+Emprunt
+```
+
+Each class should represent its corresponding object.
+
+Use encapsulation:
+
+```php
+private $id;
+private $nom;
+private $description;
+```
+
+with appropriate methods such as:
+
+```php
+getId()
+getNom()
+setNom()
+```
+
+Use type hints where appropriate.
+
+Do not expose properties unnecessarily.
+
+Do not rewrite already-correct classes without a reason.
+
+---
+
+# 7. SEPARATE OBJECT REPRESENTATION FROM DATA ACCESS
+
+Where appropriate, distinguish between:
+
+### Entity / Object
+
+Represents one object.
+
+Example:
+
+```php
+$livre = new Livre(...);
+```
+
+and:
+
+### Repository / Data access
+
+Responsible for retrieving and persisting objects.
+
+For example:
+
+```php
+$repository->getAll();
+$repository->find($id);
+$repository->create($livre);
+$repository->update($livre);
+$repository->delete($id);
+```
+
+Do not introduce Repository classes everywhere if the existing MVC implementation already provides an equivalent clean responsibility.
+
+Use this pattern where it actually helps demonstrate the lesson.
+
+---
+
+# 8. API
+
+Introduce a clear PHP API layer for the management interfaces that will be converted to Fetch/AJAX.
+
+The API must return JSON.
+
+Example:
+
+```text
+GET    /api/adherents
+POST   /api/adherents
+PUT    /api/adherents/{id}
+DELETE /api/adherents/{id}
+```
+
+Equivalent routing is acceptable if the current PHP project uses another routing mechanism.
+
+The exact URL structure is less important than having a clear HTTP API.
+
+---
+
+# 9. HTTP METHODS
+
+Use HTTP methods according to their purpose.
+
+### GET
+
+Retrieve data.
+
+Example:
+
+```text
+GET /api/rayons
+```
+
+Returns the list of rayons.
+
+### POST
+
+Create a new resource.
+
+Example:
+
+```text
+POST /api/rayons
+```
+
+Request body:
+
+```json
+{
+    "nom": "...",
+    "description": "..."
+}
+```
+
+### PUT
+
+Update an existing resource.
+
+Example:
+
+```text
+PUT /api/rayons/3
+```
+
+### DELETE
+
+Delete an existing resource.
+
+Example:
+
+```text
+DELETE /api/rayons/3
+```
+
+Do not simulate every operation with GET or POST if the current lesson specifically requires understanding these HTTP methods.
+
+---
+
+# 10. API RESPONSE FORMAT
+
+Return valid JSON from API endpoints.
+
+Example:
+
+```json
+[
+    {
+        "id": 1,
+        "nom": "Informatique",
+        "description": "..."
+    }
+]
+```
+
+or, where a structured response is useful:
+
+```json
+{
+    "success": true,
+    "data": [...]
+}
+```
+
+The format should remain consistent throughout the API.
+
+Never return HTML/PHP warnings from an API endpoint.
+
+Handle errors as JSON responses.
+
+---
+
+# 11. JAVASCRIPT FETCH
+
+Replace unnecessary traditional form submissions on the adapted management interfaces with Fetch.
+
+Example:
+
+```javascript
+fetch(API_URL)
+    .then(response => response.json())
+    .then(data => {
+        // update DOM
+    });
+```
+
+Use:
+
+```javascript
+method: "POST"
+```
+
+for creation,
+
+```javascript
+method: "PUT"
+```
+
+for modification,
+
+and:
+
+```javascript
+method: "DELETE"
+```
+
+for deletion.
+
+Send JSON when appropriate:
+
+```javascript
+headers: {
+    "Content-Type": "application/json"
+},
+body: JSON.stringify(data)
+```
+
+---
+
+# 12. DOM MANIPULATION
+
+The frontend should dynamically update the interface.
+
+For example:
+
+```javascript
+const tableBody = document.getElementById("table-body");
+```
+
+Then:
+
+```javascript
+tableBody.innerHTML = "";
+```
+
+and dynamically generate rows from API data.
+
+Do not reload the entire page after every operation when Fetch can update the current interface.
+
+After creating a record:
+
+```text
+POST
+ ↓
+API
+ ↓
+success
+ ↓
+reload data with GET
+ ↓
+update table
+```
+
+The same principle applies to update and delete.
+
+---
+
+# 13. DOM EVENTS
+
+Use event listeners for interface interactions.
+
+Examples:
+
+```javascript
+form.addEventListener("submit", ...)
+```
+
+```javascript
+button.addEventListener("click", ...)
+```
+
+```javascript
+document.addEventListener("DOMContentLoaded", ...)
+```
+
+Avoid inline JavaScript such as:
+
+```html
+<button onclick="...">
+```
+
+when an event listener provides a cleaner implementation.
+
+---
+
+# 14. SPA BEHAVIOR
+
+Do not convert the entire application into a complex SPA framework.
+
+Use a **Vanilla JavaScript SPA-style approach** only where it directly supports the current lessons.
+
+For example, a management page can behave like:
+
+```text
+Page loaded
+    ↓
+GET data
+    ↓
+Render table
+    ↓
+User clicks "Ajouter"
+    ↓
+Show form
+    ↓
+User submits
+    ↓
+POST API
+    ↓
+Receive JSON
+    ↓
+Update table
+```
+
+No unnecessary page reload.
+
+For editing:
+
+```text
+Click Modifier
+    ↓
+Load existing data
+    ↓
+Display form
+    ↓
+PUT API
+    ↓
+Update DOM
+```
+
+For deletion:
+
+```text
+Click Supprimer
+    ↓
+Confirmation
+    ↓
+DELETE API
+    ↓
+Remove/update row
+```
+
+---
+
+# 15. DO NOT CONVERT EVERYTHING AT ONCE
+
+Prioritize the modules that best demonstrate the current lessons.
+
+Start with **one complete CRUD module**.
+
+Recommended:
+
+```text
+Rayons
+```
+
+because it is simple and clearly demonstrates:
+
+```text
+The Rayon object
+        ↓
+Repository / data access
+        ↓
+API
+        ↓
+GET / POST / PUT / DELETE
+        ↓
+Fetch
+        ↓
+DOM
+        ↓
+SPA behavior
+```
+
+Once this works correctly, apply the same architecture to:
+
+```text
+Adhérents
+Livres
+```
+
+Only adapt:
+
+```text
+Emprunts
+Retours
+```
+
+where the existing workflow benefits from API/Fetch behavior.
+
+Do not unnecessarily rewrite working modules.
+
+---
+
+# 16. EXISTING BUSINESS LOGIC HAS PRIORITY
+
+The existing library business rules remain authoritative.
+
+For example:
+
+* book/rayon relationships
+* borrowing rules
+* return rules
+* member data
+* existing validations
+* late borrowing logic
+
+Do not change these just to demonstrate an API.
+
+The API must expose the existing functionality, not redefine it.
+
+---
+
+# 17. EXISTING DATABASE HAS PRIORITY
+
+Keep:
+
+```text
+MySQL
+PDO
+existing tables
+existing relationships
+existing fields
+```
+
+Do not create duplicate data structures.
+
+Do not create JSON files for persistent application data.
+
+Do not change the schema unless it is genuinely required by the existing application.
+
+---
+
+# 18. EXISTING UI HAS PRIORITY
+
+The existing professional Stitch-based UI remains the visual source of truth.
+
+Do NOT redesign it.
+
+Do NOT replace it with a generic dashboard.
+
+Do NOT change:
+
+* colors
+* typography
+* sidebar
+* header
+* cards
+* tables
+* forms
+* spacing
+* responsive design
+
+unless a modification is technically necessary to support the new interaction model.
+
+For example, replacing:
+
+```text
+<form action="...">
+```
+
+with:
+
+```javascript
+form.addEventListener("submit", ...)
+```
+
+is acceptable because it directly supports the Fetch lesson.
+
+Changing the entire visual design is NOT acceptable.
+
+---
+
+# 19. TAILWIND
+
+If the existing project already uses Tailwind, continue using it.
+
+If the existing project uses another styling system, **do not migrate the entire project to Tailwind only for this lesson**.
+
+Only introduce Tailwind if it is already part of the current project or explicitly required by the existing session implementation.
+
+The lesson is about understanding utility-based interface structure, not about rewriting the entire UI framework.
+
+---
+
+# 20. ERROR HANDLING
+
+API errors must return JSON.
+
+Example:
+
+```json
+{
+    "success": false,
+    "message": "Données invalides"
+}
+```
+
+JavaScript should handle:
+
+```javascript
+if (!response.ok) {
+    // handle API error
+}
+```
+
+Do not allow PHP warnings such as:
+
+```text
+<br>
+<b>Warning...</b>
+```
+
+to be returned to JavaScript.
+
+The frontend must always receive valid JSON from API endpoints.
+
+---
+
+# 21. SECURITY
+
+Keep all existing security measures.
+
+Continue using:
+
+* PDO prepared statements
+* server-side validation
+* output escaping
+* CSRF protection where applicable
+* secure deletion/update logic
+
+Do not move business/security logic entirely into JavaScript.
+
+JavaScript validation is only supplementary.
+
+---
+
+# 22. DO NOT OVERENGINEER
+
+This remains a **student full-stack project designed to demonstrate the current lessons**.
+
+Do NOT introduce:
+
+* React
+* Vue
+* Angular
+* Node.js
+* Laravel
+* Symfony
+* ORM
+* microservices
+* complex state-management libraries
+* unnecessary design patterns
+* WebSockets
+* GraphQL
+* unnecessary build systems
+
+Use:
+
+```text
+PHP
+PDO
+MySQL
+HTML
+CSS / existing styling system
+Vanilla JavaScript
+Fetch
+JSON
+HTTP
+POO
+```
+
+---
+
+# 23. DEVELOPMENT PROCESS
+
+Follow this process strictly.
+
+## STEP 1 — AUDIT
+
+Before modifying anything, inspect the complete existing project.
+
+Create a short analysis containing:
+
+```text
+Existing architecture:
+Existing entities:
+Existing CRUD:
+Existing PHP classes:
+Existing JavaScript:
+Existing API:
+Existing database:
+Existing UI:
+Already satisfies lesson:
+Needs modification:
+Should NOT be modified:
+```
+
+Do not modify files during this first analysis.
+
+---
+
+## STEP 2 — MAP THE LESSONS
+
+Create a mapping:
+
+```text
+Lesson
+    ↓
+Existing implementation
+    ↓
+Already correct?
+    ↓
+Modification required?
+```
+
+Example:
+
+```text
+Encapsulation
+→ Entity classes
+→ Already implemented
+→ Keep
+
+Fetch
+→ Existing forms use normal PHP submission
+→ Modification required
+
+MySQL
+→ Existing persistence
+→ Not related to the lesson change
+→ Keep
+```
+
+---
+
+## STEP 3 — CHOOSE THE FIRST MODULE
+
+Start with:
+
+```text
+Rayons
+```
+
+Implement the complete lesson architecture there first.
+
+Do not modify all modules simultaneously.
+
+---
+
+## STEP 4 — IMPLEMENT
+
+Implement:
+
+```text
+Rayon class
+Repository/data access
+API
+GET
+POST
+PUT
+DELETE
+Fetch
+DOM rendering
+Form interaction
+SPA-style updates
+```
+
+while preserving the existing UI.
+
+---
+
+## STEP 5 — TEST
+
+Test each operation independently:
+
+```text
+GET    → display rayons
+POST   → add rayon
+PUT    → modify rayon
+DELETE → delete rayon
+```
+
+Then verify:
+
+```text
+Database updated
+API returns valid JSON
+DOM updates correctly
+No unnecessary page reload
+Existing design remains intact
+```
+
+---
+
+## STEP 6 — EXTEND
+
+After the first module is stable, apply the same principles to the other relevant CRUD modules.
+
+Do not copy blindly.
+
+Respect each entity's existing business logic.
+
+---
+
+# 24. FINAL ARCHITECTURE TARGET
+
+The final architecture should conceptually look like:
+
+```text
+                    USER
+                      │
+                      ▼
+              EXISTING UI
+                      │
+                      ▼
+             VANILLA JAVASCRIPT
+                      │
+                   Fetch()
+                      │
+                      ▼
+                  PHP API
+                      │
+                      ▼
+              APPLICATION LOGIC
+                      │
+              ┌───────┴────────┐
+              ▼                ▼
+        POO ENTITIES      REPOSITORY /
+        / OBJECTS         DATA ACCESS
+              │                │
+              └───────┬────────┘
+                      ▼
+                     PDO
+                      │
+                      ▼
+                   MySQL
+```
+
+The important separation is:
+
+```text
+UI
+≠
+JavaScript
+≠
+API
+≠
+Business logic
+≠
+Data access
+≠
+Database
+```
+
+Each component should have a clear responsibility.
+
+---
+
+# 25. FINAL RULE — PRESERVE WHAT DOESN'T NEED TO CHANGE
+
+Before changing any file, ask:
+
+> **Does this modification directly help implement one of the current session concepts?**
+
+If YES:
+
+→ make the smallest clean modification necessary.
+
+If NO:
+
+→ **DO NOT CHANGE IT.**
+
+This rule has priority over refactoring preferences.
+
+The objective is NOT:
+
+> "Create a new library application using the lesson architecture."
+
+The objective is:
+
+> **"Take the existing professional Library Management System and make the minimum necessary architectural/interaction adjustments so that it demonstrates the concepts of this session: POO, encapsulation, API, HTTP, Fetch/AJAX, DOM manipulation, and SPA-style interaction."**
+
+The existing application remains the foundation.
+
+Do not rebuild it.
+
+Do not redesign it.
+
+Do not change its business rules.
+
+Do not replace MySQL.
+
+Do not replace MVC.
+
+**Adapt only what the lessons actually require.**
