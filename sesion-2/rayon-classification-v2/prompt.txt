@@ -1,0 +1,585 @@
+# TASK — Rebuild ONLY the Rayons/Classification Module According to Session 2
+
+You have access to TWO folders:
+
+* **Folder 1 — `Projet Technique` / Session 2:** this is the reference project.
+* **Folder 2 — Full Library Management System:** this is the professional project from which we will extract ONLY the Rayons/Classification functionality.
+
+Your job is **NOT to redesign or rebuild the whole Library project**.
+
+Your job is to:
+
+> **Study the Session 2 project carefully, understand exactly how it is structured and how the concepts are implemented, then extract ONLY the Rayons/Classification functionality from the Library project and recreate it using the same architecture, simplicity, coding style, and concepts demonstrated in Session 2.**
+
+---
+
+# 1. FIRST: ANALYSE THE SESSION 2 PROJECT
+
+Before modifying anything, inspect the entire Session 2 project.
+
+Understand and *identify*:
+
+* folder structure
+* frontend/backend separation
+* PHP classes
+* repository pattern
+* API structure
+* JSON/HTTP communication
+* GET/POST/PUT/DELETE usage if present
+* Fetch/AJAX
+* DOM manipulation
+* form handling
+* table rendering
+* object creation
+* encapsulation
+* getters/setters
+* Tailwind structure
+* how data is returned from the API
+* how JavaScript communicates with PHP
+* how the interface behaves without unnecessary page reloads
+* how the project demonstrates SPA-style behavior
+
+Do NOT assume a different architecture.
+
+The Session 2 project is the **main reference**.
+
+Follow its actual structure and terminology rather than introducing a new architecture.
+
+---
+
+# 2. THEN: ANALYSE THE FULL LIBRARY PROJECT
+
+Inspect the Full Library Management System.
+
+Find ONLY everything related to:
+
+## Rayons / Classification
+
+For example:
+
+* Rayon entity/class
+* Rayon database table
+* Rayon fields
+* Rayon CRUD
+* Rayon controller
+* Rayon model/repository if present
+* Rayon views
+* Rayon forms
+* Rayon JavaScript
+* Rayon API logic if present
+* Rayon database operations
+* relationships directly required by Rayon
+
+Do NOT modify:
+
+* Adhérents
+* Livres
+* Emprunts
+* Retours
+* Authentication
+* Dashboard
+* unrelated modules
+* unrelated UI
+* unrelated database functionality
+
+We are focusing exclusively on:
+
+> **Rayon = Classification**
+
+---
+
+# 3. IMPORTANT — DO NOT COPY THE WHOLE PROFESSIONAL ARCHITECTURE
+
+The Full Library project is more advanced than what we learned in Session 2.
+
+Do NOT reproduce all of its complexity.
+
+Instead:
+
+**Take the functionality of the Rayon module from the Full Library project and simplify/restructure it according to the Session 2 architecture.**
+
+The final result should look and feel like a module that was created during Session 2.
+
+The goal is educational:
+
+> Demonstrate what I learned in Session 2 using a real part of my Library project.
+
+---
+
+# 4. CONCEPTS THAT MUST BE USED
+
+The final Rayon module should demonstrate ONLY the concepts covered in Session 2.
+
+These include:
+
+### A. Components separation
+
+Separate the application into logical parts such as:
+
+```text
+frontend/
+backend/
+    classes/
+    data/ or database-related files
+```
+
+Follow the exact organization used by the Session 2 reference project whenever possible.
+
+---
+
+### B. POO
+
+Create/use a simple `Rayon` class.
+
+The class must demonstrate:
+
+* properties
+* constructor
+* encapsulation
+* getters
+* setters where necessary
+* object creation
+
+Example concept:
+
+```php
+class Rayon
+{
+    private $id;
+    private $nom;
+
+    public function __construct($nom, $id = null)
+    {
+        $this->id = $id;
+        $this->nom = $nom;
+    }
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function getNom()
+    {
+        return $this->nom;
+    }
+
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+    }
+}
+```
+
+Do not blindly use this exact code if the Session 2 project uses another structure.
+
+Follow the Session 2 implementation.
+
+---
+
+# 5. DATABASE — KEEP MYSQL
+
+The Library project already uses MySQL.
+
+**Do NOT replace MySQL with JSON for the Library project.**
+
+JSON in Session 2 should only be reproduced if it is actually part of the Session 2 architecture being demonstrated.
+
+The persistent data of the Library project must remain in MySQL.
+
+Use PDO and the existing Rayon table/database structure.
+
+Do not change the database schema unless absolutely necessary for the Session 2 concepts.
+
+---
+
+# 6. REPOSITORY / DATA ACCESS
+
+If Session 2 uses a repository such as:
+
+```text
+ThematiqueRepository
+```
+
+then create the equivalent for Rayon:
+
+```text
+RayonRepository
+```
+
+The repository should be responsible for the Rayon data operations.
+
+For example:
+
+```text
+getAll()
+create()
+update()
+delete()
+```
+
+Only implement the methods required by the Session 2 functionality and the existing Rayon CRUD.
+
+Do not create unnecessary abstractions.
+
+---
+
+# 7. API
+
+Create a simple API for the Rayon module following the Session 2 API style.
+
+The API should communicate using HTTP and JSON.
+
+It should support the operations required by the Rayon CRUD:
+
+```text
+GET     → récupérer les rayons
+POST    → ajouter un rayon
+PUT     → modifier un rayon
+DELETE  → supprimer un rayon
+```
+
+Follow the exact API organization used in the Session 2 project.
+
+Do not introduce:
+
+* REST frameworks
+* Node.js
+* Express
+* Laravel
+* Symfony
+* GraphQL
+* external API frameworks
+* unnecessary routing libraries
+
+Use simple PHP like in Session 2.
+
+---
+
+# 8. JAVASCRIPT + FETCH
+
+The frontend must communicate with the PHP API using:
+
+```javascript
+fetch()
+```
+
+Do not use traditional full-page form submissions for the Rayon CRUD if Session 2 demonstrates Fetch/AJAX.
+
+JavaScript should:
+
+* call GET to load Rayons
+* display Rayons dynamically
+* handle form submission
+* send POST when adding
+* send PUT when editing
+* send DELETE when deleting
+* process JSON responses
+* update the DOM
+* refresh/update the table without a complete page reload
+
+Keep the JavaScript simple and similar to Session 2.
+
+---
+
+# 9. DOM MANIPULATION
+
+Use JavaScript to manipulate the DOM.
+
+The Rayon interface should contain:
+
+* Rayon table
+* add form
+* edit functionality
+* delete functionality
+* buttons/actions
+
+The table should be dynamically populated from the API.
+
+For example:
+
+```javascript
+fetch(API_URL)
+    .then(response => response.json())
+    .then(rayons => {
+        // update table
+    });
+```
+
+Follow the actual coding style of Session 2.
+
+Do not introduce complex frontend frameworks.
+
+---
+
+# 10. SPA-STYLE BEHAVIOR
+
+The final Rayon module must demonstrate the SPA concept that we learned.
+
+Important:
+
+This does NOT mean converting the entire Library project into React or creating a complex SPA framework.
+
+Use:
+
+```text
+HTML
++
+Vanilla JavaScript
++
+Fetch
++
+PHP API
++
+DOM manipulation
+```
+
+The expected behavior is:
+
+```text
+User action
+      ↓
+JavaScript
+      ↓
+Fetch
+      ↓
+PHP API
+      ↓
+PHP POO / Repository
+      ↓
+MySQL
+      ↓
+JSON response
+      ↓
+JavaScript
+      ↓
+DOM update
+```
+
+The page should not need a complete reload for normal Rayon CRUD operations.
+
+---
+
+# 11. TAILWIND
+
+Use the Tailwind concepts demonstrated in Session 2.
+
+Do not redesign the entire Library interface.
+
+Keep the existing professional visual identity where possible.
+
+Only adapt the Rayon section so that its structure demonstrates the Tailwind concepts learned in the session, such as:
+
+```text
+flex
+flex-col
+flex-1
+gap
+p-*
+m-*
+w-*
+max-w-*
+mx-auto
+bg-*
+text-*
+rounded-*
+```
+
+If the existing project already uses Tailwind, reuse it.
+
+Do NOT migrate the whole project to another CSS system.
+
+---
+
+# 12. KEEP THE RAYON BUSINESS LOGIC
+
+The Rayon functionality must remain logically equivalent to the original Library project.
+
+Do not invent new business rules.
+
+Preserve:
+
+* Rayon fields
+* validation
+* database structure
+* CRUD behavior
+* existing constraints
+* existing relationships when necessary
+
+Only simplify the **technical implementation** so it matches Session 2.
+
+---
+
+# 13. SIMPLICITY IS VERY IMPORTANT
+
+The final code must look like something a student who completed Session 2 could understand and explain.
+
+Avoid:
+
+* unnecessary design patterns
+* dependency injection frameworks
+* complex routers
+* services everywhere
+* factories
+* interfaces unless already used in Session 2
+* advanced JavaScript
+* TypeScript
+* React
+* Vue
+* Angular
+* Node.js
+* Laravel
+* Symfony
+* ORM
+* unnecessary libraries
+
+Prefer simple code such as:
+
+```text
+class
+constructor
+private
+getters
+setters
+repository
+PHP API
+fetch()
+.then()
+JSON
+DOM
+eventListener
+```
+
+---
+
+# 14. DO NOT MODIFY UNRELATED PROJECT PARTS
+
+This is extremely important.
+
+Do NOT:
+
+* rebuild the Library application
+* redesign the dashboard
+* remove existing modules
+* change Adhérents
+* change Livres
+* change Emprunts
+* change Retours
+* change authentication
+* change unrelated controllers
+* change unrelated database tables
+* remove existing functionality
+* replace MVC globally
+
+Only modify/create what is necessary for:
+
+> **Rayons / Classification**
+
+---
+
+# 15. EXPECTED FINAL STRUCTURE
+
+The exact structure should follow the Session 2 project.
+
+Conceptually, it should resemble:
+
+```text
+Rayon/
+│
+├── frontend/
+│   ├── index.html
+│   └── main.js
+│
+└── backend/
+    ├── api.php
+    └── classes/
+        ├── Rayon.php
+        └── RayonRepository.php
+```
+
+However:
+
+**Do not force this exact structure if the Session 2 project uses another structure.**
+
+The Session 2 project is the source of truth.
+
+Adapt the structure to the existing Library project only where necessary.
+
+---
+
+# 16. IMPORTANT: ANALYSE BEFORE CODING
+
+Do not immediately start changing files.
+
+First determine:
+
+1. How Session 2 implements Thematique/Classification.
+2. What concepts from Session 2 are being demonstrated.
+3. How the Library project currently implements Rayon.
+4. Which parts of the existing Rayon implementation can be reused.
+5. Which parts need to be simplified.
+6. Which files need to be created.
+7. Which files need to be modified.
+8. Which files must NOT be touched.
+
+Then implement only the necessary changes.
+
+---
+
+# 17. EXPECTED RESULT
+
+At the end, I want a **simple Rayon/Classification CRUD module** that:
+
+* comes from the existing professional Library project
+* keeps the existing MySQL database
+* keeps the Rayon business logic
+* uses POO
+* uses encapsulation
+* uses a Rayon object
+* uses a repository/data-access layer similar to Session 2
+* exposes a simple PHP API
+* uses HTTP methods
+* uses JSON responses
+* uses Fetch/AJAX
+* manipulates the DOM
+* uses Tailwind concepts learned in Session 2
+* behaves in a SPA-style way
+* does not require full page reloads for CRUD actions
+* is simple enough for me to explain to my instructor
+* follows the Session 2 project as closely as possible
+
+---
+
+# 18. FINAL RULE
+
+Think of the task like this:
+
+```text
+SESSION 2 PROJECT
+       ↓
+   STUDY IT
+       ↓
+Understand its architecture
+       ↓
+FULL LIBRARY PROJECT
+       ↓
+Extract ONLY Rayons
+       ↓
+Simplify Rayons
+       ↓
+Apply Session 2 architecture
+       ↓
+Final Rayons / Classification module
+```
+
+Do NOT make the final result more advanced than Session 2.
+
+The goal is **not to show everything the professional Library application can do**.
+
+The goal is to show:
+
+> **“I took the Classification/Rayon part of my professional Library project and implemented it using the POO, API, HTTP, Fetch/AJAX, DOM, Tailwind, and SPA-style concepts that I learned in Session 2.”**
+
+Before making changes, briefly report your analysis of both folders and the exact files you intend to modify/create.
+Then implement the Rayon module.
+After implementation, explain briefly how each part corresponds to a concept from Session 2.
