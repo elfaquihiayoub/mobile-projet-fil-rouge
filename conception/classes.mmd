@@ -2,28 +2,32 @@
 title: Traduire le MLD en modèle objet
 ---
 classDiagram
-    class Rayon{
-        - int id
-        - string nom
-        - string emplacement
-        }
-    class Adherent{
-        - int id
-        - string nom
-        - string prenom
-        - string email
-        - string telephone
-        }
-    class livre{
-        - int id
-        - string titre
-        - string auteur
-        - string isbn
-        - string etat
-        }
-    class Emprunt{
-        - int id
-        - DateTime date_emprunt
-        - DateTime date_retour_prevue
-        - DateTime date_retour_effective
-        }
+    class Categorie {
+        -int id
+        -string nom
+        -string couleur
+        -string icone
+    }
+    
+    class User {
+        -int id
+        -string email
+        -string password
+        -string role
+    }
+    
+    class Auteur {
+        -int id
+        -string nom
+        -string prenom
+        -string biographie
+        -string avatar
+    }
+    
+    class Article {
+        -int id
+        -string titre
+        -string contenu
+        -string statut
+        -DateTime date_creation
+    }
