@@ -1,4 +1,4 @@
-const API_URL = '../backend/api/controllers/controllerRayon.php';
+const API_URL = new URL('../backend/api/controllers/controllerRayon.php', window.location.href).toString();
 const tableBody = document.getElementById('rayon-table-body');
 const rayonForm = document.getElementById('rayon-form');
 const nomRayonInput = document.getElementById('nom_rayon');

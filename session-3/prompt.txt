@@ -1,0 +1,5 @@
+look at this folder , dont change the context we are here talking about programming concept only whats the things that changes from the live coding folder (STRUCTURE , CONCEPT ....) from this rayon folder, not the theme or whats the data .... , im talking about logic  , list them for me to validate.
+
+
+
+i want all these changes to be on a new folder , make this changes , and let the same code level as the live coding folder.
