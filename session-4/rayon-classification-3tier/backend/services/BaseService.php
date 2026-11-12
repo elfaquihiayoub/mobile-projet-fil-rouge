@@ -1,5 +1,4 @@
 <?php
-declare(strict_types=1);
 
 abstract class BaseService
 {
@@ -15,7 +14,15 @@ abstract class BaseService
 
     protected function optionalText(?string $value): ?string
     {
-        $value = trim($value ?? '');
-        return $value === '' ? null : $value;
+        if ($value === null) {
+            $value = '';
+        }
+
+        $value = trim($value);
+        if ($value === '') {
+            return null;
+        }
+
+        return $value;
     }
 }

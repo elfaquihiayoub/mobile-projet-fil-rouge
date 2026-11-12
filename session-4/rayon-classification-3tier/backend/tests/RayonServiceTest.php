@@ -1,9 +1,8 @@
 <?php
-declare(strict_types=1);
 
 require_once __DIR__ . '/../services/RayonService.php';
 
-function assertSameValue(mixed $expected, mixed $actual, string $message): void
+function assertSameValue($expected, $actual, string $message): void
 {
     if ($expected !== $actual) {
         throw new RuntimeException(
@@ -20,7 +19,7 @@ if ($temporaryDataFile === false) {
 try {
     file_put_contents($temporaryDataFile, json_encode([
         ['id' => 4, 'nom' => 'Fruits', 'emplacement' => 'A1'],
-    ], JSON_THROW_ON_ERROR));
+    ]));
 
     $dao = new RayonDAO($temporaryDataFile);
     $service = new RayonService($dao);
@@ -32,8 +31,16 @@ try {
     assertSameValue(null, $created->getEmplacement(), 'Create normalizes empty location');
 
     $updated = $service->update(5, 'Epicerie', 'B2');
-    assertSameValue('Epicerie', $updated?->getNom(), 'Update name');
-    assertSameValue('B2', $service->getById(5)?->getEmplacement(), 'Read updated data');
+    if ($updated === null) {
+        throw new RuntimeException('Update should return the updated Rayon.');
+    }
+    assertSameValue('Epicerie', $updated->getNom(), 'Update name');
+
+    $found = $service->getById(5);
+    if ($found === null) {
+        throw new RuntimeException('The updated Rayon should be readable.');
+    }
+    assertSameValue('B2', $found->getEmplacement(), 'Read updated data');
 
     assertSameValue(true, $service->delete(5), 'Delete existing Rayon');
     assertSameValue(null, $service->getById(5), 'Deleted Rayon is absent');

@@ -1,0 +1,22 @@
+[
+    {
+        "id": 2,
+        "nom": "etet",
+        "emplacement": "A1"
+    },
+    {
+        "id": 3,
+        "nom": "addd",
+        "emplacement": "addd"
+    },
+    {
+        "id": 4,
+        "nom": "test",
+        "emplacement": "a2"
+    },
+    {
+        "id": 5,
+        "nom": "test2",
+        "emplacement": "B2"
+    }
+]

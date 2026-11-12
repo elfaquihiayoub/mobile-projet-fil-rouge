@@ -1,18 +1,17 @@
 <?php
-declare(strict_types=1);
 
 require_once __DIR__ . '/BaseService.php';
 require_once __DIR__ . '/../dao/RayonDAO.php';
 
 class RayonService extends BaseService
 {
-    public function __construct(private RayonDAO $rayonDAO)
+    private RayonDAO $rayonDAO;
+
+    public function __construct(RayonDAO $rayonDAO)
     {
+        $this->rayonDAO = $rayonDAO;
     }
 
-    /**
-     * @return Rayon[]
-     */
     public function getAll(): array
     {
         return $this->rayonDAO->getAll();
@@ -25,24 +24,26 @@ class RayonService extends BaseService
 
     public function create(string $nom, ?string $emplacement): Rayon
     {
-        $rayon = new Rayon(
-            $this->requiredText($nom, 'nom'),
-            $this->optionalText($emplacement)
-        );
+        $nom = $this->requiredText($nom, 'nom');
+        $emplacement = $this->optionalText($emplacement);
+
+        $rayon = new Rayon($nom, $emplacement);
         $id = $this->rayonDAO->create($rayon);
 
-        return new Rayon($rayon->getNom(), $rayon->getEmplacement(), $id);
+        return new Rayon($nom, $emplacement, $id);
     }
 
     public function update(int $id, string $nom, ?string $emplacement): ?Rayon
     {
-        $rayon = new Rayon(
-            $this->requiredText($nom, 'nom'),
-            $this->optionalText($emplacement),
-            $id
-        );
+        $nom = $this->requiredText($nom, 'nom');
+        $emplacement = $this->optionalText($emplacement);
+        $rayon = new Rayon($nom, $emplacement, $id);
 
-        return $this->rayonDAO->update($id, $rayon) ? $rayon : null;
+        if (!$this->rayonDAO->update($id, $rayon)) {
+            return null;
+        }
+
+        return $rayon;
     }
 
     public function delete(int $id): bool

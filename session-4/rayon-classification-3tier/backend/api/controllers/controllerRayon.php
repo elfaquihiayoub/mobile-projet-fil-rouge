@@ -1,13 +1,18 @@
 <?php
-declare(strict_types=1);
 
 require_once __DIR__ . '/../../services/RayonService.php';
 
 class ControllerRayon
 {
-    public function __construct(private ?RayonService $rayonService = null)
+    private RayonService $rayonService;
+
+    public function __construct(?RayonService $rayonService = null)
     {
-        $this->rayonService ??= new RayonService(new RayonDAO());
+        if ($rayonService === null) {
+            $rayonService = new RayonService(new RayonDAO());
+        }
+
+        $this->rayonService = $rayonService;
     }
 
     public function handle(): void
@@ -15,7 +20,10 @@ class ControllerRayon
         header('Content-Type: application/json; charset=utf-8');
 
         try {
-            $method = $_SERVER['REQUEST_METHOD'] ?? '';
+            $method = '';
+            if (isset($_SERVER['REQUEST_METHOD'])) {
+                $method = $_SERVER['REQUEST_METHOD'];
+            }
 
             if ($method === 'GET') {
                 $this->respond($this->serializeRayons($this->rayonService->getAll()));
@@ -60,24 +68,22 @@ class ControllerRayon
             $this->respondError(400, $error->getMessage());
         } catch (InvalidArgumentException $error) {
             $this->respondError(422, $error->getMessage());
-        } catch (RuntimeException | JsonException $error) {
+        } catch (RuntimeException $error) {
             error_log($error->getMessage());
             $this->respondError(500, 'Erreur lors du traitement des rayons.');
         }
     }
 
-    /**
-     * @param Rayon[] $rayons
-     * @return array<int, array{id: ?int, nom: string, emplacement: ?string}>
-     */
     private function serializeRayons(array $rayons): array
     {
-        return array_map(fn (Rayon $rayon): array => $this->serializeRayon($rayon), $rayons);
+        $result = [];
+        foreach ($rayons as $rayon) {
+            $result[] = $this->serializeRayon($rayon);
+        }
+
+        return $result;
     }
 
-    /**
-     * @return array{id: ?int, nom: string, emplacement: ?string}
-     */
     private function serializeRayon(Rayon $rayon): array
     {
         return [
@@ -87,9 +93,6 @@ class ControllerRayon
         ];
     }
 
-    /**
-     * @return array{nom: string, emplacement: ?string}
-     */
     private function readFields(): array
     {
         $rawBody = file_get_contents('php://input');
@@ -97,30 +100,35 @@ class ControllerRayon
             throw new UnexpectedValueException('Requete JSON invalide.');
         }
 
-        try {
-            $data = json_decode($rawBody, true, 512, JSON_THROW_ON_ERROR);
-        } catch (JsonException $error) {
-            throw new UnexpectedValueException('Requete JSON invalide.', 0, $error);
-        }
-
-        if (!is_array($data) || !str_starts_with(ltrim($rawBody), '{')) {
+        $data = json_decode($rawBody);
+        if (json_last_error() !== JSON_ERROR_NONE || !is_object($data)) {
             throw new UnexpectedValueException('Requete JSON invalide.');
         }
-        if (!isset($data['nom']) || !is_string($data['nom'])) {
+
+        if (!isset($data->nom) || !is_string($data->nom)) {
             throw new InvalidArgumentException('Le nom du rayon est requis.');
         }
 
-        $emplacement = $data['emplacement'] ?? null;
+        $emplacement = null;
+        if (isset($data->emplacement)) {
+            $emplacement = $data->emplacement;
+        }
+
         if ($emplacement !== null && !is_string($emplacement)) {
             throw new InvalidArgumentException('Emplacement invalide.');
         }
 
-        return ['nom' => $data['nom'], 'emplacement' => $emplacement];
+        return ['nom' => $data->nom, 'emplacement' => $emplacement];
     }
 
     private function readId(): int
     {
-        $id = filter_var($_GET['id'] ?? null, FILTER_VALIDATE_INT);
+        $value = null;
+        if (isset($_GET['id'])) {
+            $value = $_GET['id'];
+        }
+
+        $id = filter_var($value, FILTER_VALIDATE_INT);
         if ($id === false || $id === null || $id < 1) {
             throw new UnexpectedValueException('Identifiant de rayon invalide.');
         }
@@ -136,10 +144,16 @@ class ControllerRayon
 
     private function respond(array $data): void
     {
-        echo json_encode($data, JSON_THROW_ON_ERROR);
+        $json = json_encode($data);
+        if ($json === false) {
+            throw new RuntimeException('Impossible de creer la reponse JSON.');
+        }
+
+        echo $json;
     }
 }
 
 if (isset($_SERVER['SCRIPT_FILENAME']) && realpath($_SERVER['SCRIPT_FILENAME']) === __FILE__) {
-    (new ControllerRayon())->handle();
+    $controller = new ControllerRayon();
+    $controller->handle();
 }
