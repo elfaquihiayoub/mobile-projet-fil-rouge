@@ -1,0 +1,12 @@
+[
+    {
+        "id": 1,
+        "nom": "ex",
+        "emplacement": "A1"
+    },
+    {
+        "id": 2,
+        "nom": "etet",
+        "emplacement": "A1"
+    }
+]

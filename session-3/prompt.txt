@@ -3,3 +3,10 @@ look at this folder , dont change the context we are here talking about programm
 
 
 i want all these changes to be on a new folder , make this changes , and let the same code level as the live coding folder.
+
+
+
+
+-- prompt to make it use dao and services:
+ i want a prompt to create from an existant project of my gestion bibliothec (class clasification ) rayon , to make it use this concept on 3tier(including services and BaseService dao concepts) based on the privous code 
+i want a new folder contains this version
