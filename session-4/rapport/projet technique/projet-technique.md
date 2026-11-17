@@ -1,88 +1,149 @@
-# Projet technique - Gestion de musique
+# Projet technique — Annuaire de podcasts
 
-Ce projet technique correspond à une application web de gestion d'une plateforme musicale. Son objectif est de permettre à un administrateur de gérer les genres musicaux, les artistes et les morceaux, tout en offrant une structure simple et évolutive pour le développement d'un projet plus complet.
+## Présentation du projet
 
-La version actuelle sert de prototype CRUD pour valider la logique métier, l'architecture MVC légère et l'intégration front-end / back-end.
+Le projet consiste à concevoir un annuaire de podcasts administré depuis une
+interface web. Le modèle métier s’organise autour des animateurs, des
+thématiques et des épisodes. Une thématique permet de classer les épisodes ;
+chaque épisode est animé par un animateur.
 
-## Objectif du projet
+Le modèle de données et le prototype doivent être distingués : le MCD et le
+script SQL décrivent les trois entités, tandis que le prototype PHP disponible
+met principalement en œuvre la consultation et l’ajout de thématiques avec un
+stockage JSON.
 
-Créer une application de gestion musicale permettant de :
-- gérer les genres musicaux,
-- gérer les artistes,
-- gérer les morceaux musicaux,
-- organiser les fichiers multimédias associés (images de couverture, fichiers audio),
-- suivre le statut de publication d'un morceau (Draft / Published).
+## Objectifs
 
-## Fonctionnalités clés
+- Organiser les épisodes par thématique.
+- Associer chaque épisode à son animateur.
+- Décrire les épisodes par leur titre, leur description, leur durée et leur
+  date de publication.
+- Fournir une interface d’administration pour consulter et gérer les données.
+- Séparer progressivement la présentation, le traitement métier et l’accès
+  aux données.
 
-- **Gestion des genres :** ajouter, afficher, modifier et supprimer des genres musicaux.
-- **Gestion des artistes :** ajouter des artistes avec leur nom et leur image de profil.
-- **Gestion des morceaux :** enregistrer un titre, une couverture, un fichier audio, son statut et sa date de publication.
-- **Association des données :** chaque morceau est lié à un artiste et à un genre.
-- **Organisation du catalogue :** centraliser les musiques par genre et par artiste.
+## Fonctionnalités prévues
 
-## Modèle de données principal
+- Gérer les animateurs et leurs coordonnées.
+- Gérer les thématiques et leur description.
+- Gérer les épisodes et leurs informations de publication.
+- Associer chaque épisode à une thématique et à un animateur.
+- Consulter les thématiques depuis l’interface.
 
-### Artistes
-- `id` : identifiant unique
-- `ArtistName` : nom de l'artiste
-- `dateOfCreation` : date de création de l'enregistrement
-- `ProfilePicture` : image de profil
+Les quatre premières fonctions décrivent le périmètre fonctionnel visé par le
+modèle. Dans le prototype de la version actuelle, seules la consultation et
+la création de thématiques sont prises en charge par l’API ; la gestion CRUD
+complète des animateurs et des épisodes n’est pas encore implémentée.
 
-### Genres
-- `id` : identifiant unique
-- `genreName` : nom du genre musical
+## Modèle de données
 
-### Songs / morceaux
-- `id` : identifiant unique
-- `SongTitle` : titre du morceau
-- `dateOfCreation` : date d'ajout
-- `ProfilePicture` : image de couverture
-- `songFilePath` : chemin du fichier audio
-- `status` : `Draft` ou `Published`
-- `dateOfPublication` : date de publication
-- `artist_id` : référence vers l'artiste
-- `genre_id` : référence vers le genre
+### Animateur
 
-## Relations principales
+- `id_animateur` : identifiant.
+- `nom` : nom de l’animateur.
+- `prenom` : prénom de l’animateur.
+- `email` : adresse électronique unique.
 
-- **Artist ↔ Songs :** relation One-to-Many (un artiste peut avoir plusieurs morceaux).
-- **Genre ↔ Songs :** relation One-to-Many (un genre contient plusieurs morceaux).
-- **Song :** appartient à un seul artiste et à un seul genre.
+### Thématique
 
-## Structure actuelle du projet
+- `id_thematique` : identifiant.
+- `Nom_thematique` : nom de la thématique dans le script SQL.
+- `descreption_thematique` : description dans le script SQL.
 
-### Frontend
-- HTML
-- CSS / Tailwind CSS
-- JavaScript
+### Épisode
+
+- `id_episode` : identifiant.
+- `titre` : titre de l’épisode.
+- `descreption_episode` : description dans le script SQL.
+- `duree_episode` : durée au format `TIME`.
+- `date_publication` : date et heure de publication.
+- `id_animateur` : référence vers l’animateur.
+- `id_thematique` : référence vers la thématique.
+
+### Relations et cardinalités
+
+- Un animateur anime un ou plusieurs épisodes ; chaque épisode a un seul
+  animateur.
+- Une thématique peut être associée à aucun ou plusieurs épisodes ; chaque
+  épisode appartient à une seule thématique.
+
+Le MCD fourni affiche les identifiants sous forme d’UUID. Le script SQL
+disponible déclare toutefois les identifiants comme des entiers
+`AUTO_INCREMENT`. Ce choix doit être harmonisé entre le MCD, le script SQL et
+les éventuelles données de l’application avant une mise en production.
+
+## Technologies et architecture
+
+### Interface
+
+- HTML pour les pages d’administration.
+- JavaScript pour charger et afficher les thématiques et envoyer les
+  formulaires.
+- Tailwind CSS chargé depuis un CDN pour la mise en forme du prototype.
 
 ### Backend
-- PHP
-- Contrôleurs
-- Services
-- DAO / accès aux données
-- API REST simple
 
-### Base de données
-- Schéma SQL de référence pour une base MySQL / MariaDB
-- Implémentation prototype possible via fichier JSON avant migration vers la base de données
+- PHP pour le point d’entrée API, les classes métier, le service et le DAO.
+- Échanges HTTP avec des données au format JSON.
+- L’API actuelle du prototype expose la consultation (`GET`) et la création
+  (`POST`) de thématiques.
 
-## Architecture technique
+### Persistance
 
-- **Frontend :** interface de gestion des catégories / genres via JavaScript et HTML.
-- **API :** point d'entrée PHP pour les opérations CRUD.
-- **Service layer :** logique métier des opérations liées aux genres.
-- **DAO / Models :** encapsulation des objets et accès aux données.
+- Le prototype utilise `backend/data/thematique.json`.
+- Le script SQL définit une base `Annuaire_de_podcasts` avec les tables
+  `Animateur`, `thematique` et `episode`.
+- Le schéma relationnel constitue le modèle de base de données ; le prototype
+  JSON actuel ne persiste pas encore les trois entités dans MySQL/MariaDB.
 
-## Exemple de logique métier
+### Organisation des couches
 
-- Ajouter un nouveau genre musical
-- Récupérer tous les genres
-- Enregistrer un morceau associé à un artiste et à un genre
-- Mettre à jour le statut d'un morceau comme `Published`
-- Gérer les fichiers multimédias du catalogue musical
+Dans le prototype, le parcours d’une requête de thématique est le suivant :
 
-## Conclusion
+1. Le navigateur envoie une requête à `controllerThematique.php`.
+2. Le contrôleur construit la réponse et délègue les opérations à
+   `ThematiqueService`.
+3. Le service appelle `ThematiqueDao`.
+4. Le DAO lit ou met à jour le fichier JSON et hydrate des objets
+   `Thematique`.
 
-Ce prototype a permis de valider l'organisation base de données + back-end + front-end pour une application de gestion musicale. Il sert de base solide pour une version plus avancée avec authentification, gestion complète des artistes, upload de fichiers audio et interface admin plus complète.
+Le fichier `BaseService.php` existe dans la version examinée, mais sa classe
+est vide et `ThematiqueService` n’en hérite pas. Il ne faut donc pas lui
+attribuer de règles de validation partagées dans la description de
+l’implémentation actuelle.
+
+## Classes principales du prototype
+
+- **`Thematique`** : encapsule l’identifiant, le nom et la description d’une
+  thématique.
+- **`ControllerThematique`** : reçoit les requêtes HTTP, appelle le service
+  et sérialise les résultats.
+- **`ThematiqueService`** : coordonne la consultation et la création des
+  thématiques.
+- **`ThematiqueDao`** : lit le fichier JSON, crée les enregistrements et
+  transforme les lignes stockées en objets métier.
+- **`BaseService`** : classe de base présente, mais encore vide dans cette
+  version du projet.
+
+## Parcours fonctionnel actuellement réalisé
+
+1. L’interface demande la liste des thématiques à l’API.
+2. Le contrôleur appelle le service, qui délègue la lecture au DAO.
+3. Le DAO lit le fichier JSON et retourne les objets `Thematique`.
+4. L’interface affiche le nom et la description des thématiques.
+5. Le formulaire envoie une nouvelle thématique en JSON ; le contrôleur la
+   transmet au service puis au DAO pour l’enregistrement.
+
+## Conclusion et évolutions
+
+Le projet définit un annuaire de podcasts dont le modèle comprend les
+animateurs, les thématiques et les épisodes. Le prototype actuel valide la
+consultation et la création de thématiques à travers une interface web, une
+API PHP, un service, un DAO et un stockage JSON.
+
+Les évolutions possibles sont d’ajouter les opérations de modification et de
+suppression, de compléter les services et leurs validations, puis d’implémenter
+la gestion des animateurs et des épisodes. Une étape ultérieure pourra relier
+le prototype au schéma relationnel MySQL/MariaDB. Avant cette migration, il
+faudra harmoniser les identifiants UUID du MCD avec les identifiants entiers
+`AUTO_INCREMENT` du script SQL.

@@ -152,12 +152,10 @@ La méthode 2TUP sépare l’analyse fonctionnelle de l’étude technique, puis
 réunit ces deux branches lors de la conception et de la réalisation.
 
 ```mermaid
-flowchart LR
-    F[Branche fonctionnelle<br/>collections, adhérents et circulation]
-    T[Branche technique<br/>MVC, MySQL/PDO et évolution 3-tiers]
-    F --> C[Convergence<br/>modèle et fonctionnalités]
-    T --> C
-    C --> R[Implémentation et vérification]
+graph LR
+    F[Branche fonctionnelle] --> C[Convergence]
+    T[Branche technique] --> C
+    C --> R[Realisation et verification]
 ```
 
 *Figure — Adaptation du processus 2TUP au projet de gestion de bibliothèque.*
@@ -318,7 +316,7 @@ flowchart LR
     U[Administrateur] <--> UI[Interface HTML / JavaScript]
     UI -->|HTTP / JSON| C[ControllerRayon]
     C --> S[RayonService]
-    S --> B[BaseService<br/>validation commune]
+    S --> B[BaseService - validation commune]
     S --> D[RayonDAO]
     D <-->|lecture / écriture| J[(rayon.json)]
     D --> S
