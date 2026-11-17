@@ -10,7 +10,6 @@ title: Rapport final — Gestion de bibliothèque
 - [Remerciements](#remerciements)
 - [Introduction](#introduction)
 - [Contexte du projet](#contexte-du-projet)
-- [Objectif de formation (Solicode)](#objectif-de-formation-solicode)
 - [Cahier des charges](#cahier-des-charges)
 - [Méthodologie de travail](#méthodologie-de-travail)
   - [Méthodologie Scrum](#méthodologie-scrum)
@@ -74,16 +73,6 @@ Cette distinction est importante : les données et le thème restent ceux de
 la bibliothèque, tandis que les versions du module Rayon servent à comparer
 les responsabilités et l’organisation du code.
 
-## Objectif de formation (Solicode)
-
-Le projet permet de pratiquer les étapes du développement d’une application :
-formaliser des besoins, modéliser les données et leurs relations, organiser
-le code selon des responsabilités distinctes, traiter les requêtes, valider
-les entrées et vérifier les opérations par des tests.
-
-L’évolution du module Rayon met plus particulièrement en évidence la
-séparation entre interface, logique métier et persistance, ainsi que l’intérêt
-d’un DAO et de services réutilisables.
 
 ## Cahier des charges
 

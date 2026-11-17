@@ -156,7 +156,7 @@ Fichier JSON
 - **Frontend** · HTML · CSS / Tailwind · JavaScript
 - **Backend** · PHP · Contrôleurs · Services · DAO
 - **API** · REST
-- **Données** · MySQL / MariaDB · prototype JSON
+- **Données** · MySQL / prototype JSON
 
 ---
 
