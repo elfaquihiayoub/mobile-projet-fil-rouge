@@ -64,15 +64,19 @@ style: |
 
 <!-- _class: title-slide -->
 
-# Rapport de projet e-learning platforme
+# Rapport de projet
 
+
+
+### Projet fil rouge · Gestion de bibliothèque  
+
+
+El faquihi Ayoub
+ · Encadrant : Fouad ESSARAJ
 <div class="brand-row">
   <img src="ofppt.png" alt="Logo OFPPT" />
   <img src="solicode.png" alt="Logo SOLICODE" />
 </div>
-
-Aymane salmoune  
-encadrant : Fouad ESSARAJ
 
 ---
 
@@ -86,34 +90,39 @@ encadrant : Fouad ESSARAJ
 
 ## Contexte du projet
 
+<!-- _class: image-only -->
+
+![Diagramme de contexte de la gestion de bibliothèque](diagrams/context-bibliotheque.svg)
+
 ---
 
-## Objectif de formation (Solicode)
 
----
 
 ## Cahier des charges
 
+---
+## Methode de travail
 ---
 <!-- _class: image-only -->
 
 ## Scrum
 
-![Méthode Scrum](../rapport/SCRUM/scrum.png)
+![Méthode Scrum](diagrams/scrum.jpg)
 
 ---
 <!-- _class: image-only -->
 
 ## Processus 2TUP
 
-![Processus 2TUP](../rapport/2TUP/images.jpg)
+![Processus 2TUP](diagrams/processus-2tup.jpg)
 
 ---
 <!-- _class: image-only -->
 
 ## Design Thinking
 
-![Design Thinking](../rapport/design_thinking/design_thinking.jpg)
+
+![Design Thinking width:900](diagrams/design%20thinking.png)
 
 ---
 
@@ -139,62 +148,80 @@ encadrant : Fouad ESSARAJ
 
 ## Diagramme de cas d'utilisation
 
----
+<!-- _class: image-only -->
 
-## Stack technologique
-
-- **Backend** · PHP 8.2 · Laravel 12
-- **Autorisations** · Spatie Laravel Permission
-- **Mobile** · NativePHP
-- **Frontend** · Blade · Tailwind CSS · Alpine · Preline · Vite
-- **Base de données** · MySQL
-- **Diagrammes** · Mermaid · PlantUML
+![Cas d’utilisation de l’application de bibliothèque](diagrams/use-cases-bibliotheque.svg)
 
 ---
 
-## Architecture
+## Stack technologique · Projet technique
 
-**Présentation** → **Logique métier** → **Accès aux données**
+- **Backend** · PHP
+- **Frontend** · HTML · JavaScript · Tailwind CSS
+- **API** · HTTP · JSON
+- **Persistance du prototype** · fichier JSON
+- **Base relationnelle décrite par le modèle** · MySQL / MariaDB
 
-Navigateur · HTML / JavaScript
+---
 
-↓ API HTTP / JSON
+## Architecture · Projet technique
 
-PHP · Services · DAO
+**Interface HTML / JavaScript**
+
+↓ Requêtes HTTP / réponses JSON
+
+**ControllerThematique**
 
 ↓
 
-Fichier JSON
+**ThematiqueService**
+
+↓
+
+**ThematiqueDao** → **thematique.json**
+
+`BaseService` existe dans le dossier, mais il est vide et n’est pas utilisé par
+`ThematiqueService`.
 
 ---
 
-## Prototype musical
+## Prototype · Projet technique
 
-- Genres · Artistes · Morceaux
-- Création · Consultation · Modification · Suppression
-- Statut · Brouillon ou publié
-- Couvertures · Fichiers audio
-
----
-
-## Relations des données
-
-- **Artiste** → plusieurs morceaux
-- **Genre** → plusieurs morceaux
-- **Morceau** → un artiste + un genre
+- **Domaine cible** · Animateurs · Thématiques · Épisodes
+- **API réalisée** · Consultation et création des thématiques
+- **Données utilisées** · Nom et description d’une thématique
+- **Persistance actuelle** · Fichier JSON
+- Le MCD et le script SQL décrivent les trois entités ; le prototype ne les
+  gère pas encore toutes.
 
 ---
 
-## Structure technique
+## Relations · Projet technique
 
-- **Frontend** · HTML · CSS / Tailwind · JavaScript
-- **Backend** · PHP · Contrôleurs · Services · DAO
-- **API** · REST
-- **Données** · MySQL / MariaDB · prototype JSON
+- **Animateur** · anime un ou plusieurs épisodes
+- **Épisode** · est animé par un seul animateur
+- **Thématique** · peut regrouper zéro ou plusieurs épisodes
+- **Épisode** · appartient à une seule thématique
 
 ---
 
-## Diagramme de classes
+## Structure technique · Projet technique
+
+- `controllerThematique.php` reçoit la requête.
+- `ThematiqueService` coordonne l’opération et appelle `ThematiqueDao`.
+- Le DAO lit et écrit les données JSON, puis retourne des objets `Thematique`.
+- L’API actuelle expose `GET` et `POST` pour les thématiques.
+
+---
+
+<!-- _class: image-only -->
+
+
+<!-- _class: image-only -->
+
+## Diagramme de classes · Projet fil rouge
+
+![Diagramme de classes de la gestion de bibliothèque width:900](diagrams/classes-bibliotheque.svg)
 
 ---
 
@@ -208,6 +235,7 @@ Fichier JSON
 
 ## Conclusion
 
-- Prototype CRUD fonctionnel
-- Base pour une plateforme musicale évolutive
-- Extensions possibles · authentification · upload audio · gestion complète
+- Le projet fil rouge porte sur la gestion de bibliothèque.
+- Le projet technique porte sur un annuaire de podcasts.
+- Le prototype podcasts valide la consultation et la création de thématiques
+  avec une API PHP et un stockage JSON.

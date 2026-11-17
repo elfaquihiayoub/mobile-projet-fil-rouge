@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="650" viewBox="0 0 1200 650" role="img" aria-labelledby="title description">
+  <title id="title">Diagramme de cas d’utilisation — Gestion de bibliothèque</title>
+  <desc id="description">Le bibliothécaire consulte le tableau de bord, gère les adhérents, rayons et livres, enregistre les emprunts et retours, et vérifie la disponibilité.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L10,5 L0,10 z" fill="#52617a"/>
+    </marker>
+    <style>
+      text { font-family: Aptos, "Segoe UI", sans-serif; fill: #172033; }
+      .boundary { fill: #f8fafc; stroke: #9aa9c2; stroke-width: 2; }
+      .actor { fill: #fff; stroke: #4667a8; stroke-width: 3; }
+      .usecase { fill: #eaf0fb; stroke: #4667a8; stroke-width: 2.5; }
+      .association { fill: none; stroke: #52617a; stroke-width: 2; marker-end: url(#arrow); }
+      .label { font-size: 20px; font-weight: 600; }
+      .case-label { font-size: 17px; }
+      .small { font-size: 15px; fill: #52617a; }
+    </style>
+  </defs>
+  <rect x="20" y="20" width="1160" height="610" rx="18" fill="#fff"/>
+  <rect class="boundary" x="300" y="55" width="835" height="540" rx="18"/>
+  <text class="label" x="717" y="91" text-anchor="middle">Système de gestion de bibliothèque</text>
+  <rect class="actor" x="55" y="262" width="195" height="96" rx="18"/>
+  <text class="label" x="152" y="305" text-anchor="middle">Bibliothécaire</text>
+  <text class="small" x="152" y="333" text-anchor="middle">Acteur principal</text>
+
+  <ellipse class="usecase" cx="500" cy="170" rx="155" ry="38"/>
+  <text class="case-label" x="500" y="176" text-anchor="middle">Consulter le tableau de bord</text>
+  <ellipse class="usecase" cx="850" cy="150" rx="170" ry="38"/>
+  <text class="case-label" x="850" y="156" text-anchor="middle">Gérer les adhérents</text>
+  <ellipse class="usecase" cx="850" cy="235" rx="170" ry="38"/>
+  <text class="case-label" x="850" y="241" text-anchor="middle">Gérer les rayons</text>
+  <ellipse class="usecase" cx="850" cy="320" rx="190" ry="38"/>
+  <text class="case-label" x="850" y="326" text-anchor="middle">Gérer les exemplaires de livres</text>
+  <ellipse class="usecase" cx="500" cy="405" rx="155" ry="38"/>
+  <text class="case-label" x="500" y="411" text-anchor="middle">Enregistrer un emprunt</text>
+  <ellipse class="usecase" cx="850" cy="425" rx="170" ry="38"/>
+  <text class="case-label" x="850" y="431" text-anchor="middle">Consulter les emprunts actifs</text>
+  <ellipse class="usecase" cx="850" cy="510" rx="170" ry="38"/>
+  <text class="case-label" x="850" y="516" text-anchor="middle">Enregistrer le retour</text>
+  <ellipse class="usecase" cx="500" cy="530" rx="175" ry="38"/>
+  <text class="case-label" x="500" y="526" text-anchor="middle">Vérifier la disponibilité</text>
+  <text class="small" x="500" y="546" text-anchor="middle">de l’exemplaire</text>
+
+  <path class="association" d="M250 290 C300 255 325 190 345 174"/>
+  <path class="association" d="M250 300 C355 260 500 170 680 152"/>
+  <path class="association" d="M250 310 C390 292 540 240 680 237"/>
+  <path class="association" d="M250 320 C390 322 500 320 660 320"/>
+  <path class="association" d="M250 330 C300 350 330 388 345 400"/>
+  <path class="association" d="M250 335 C400 380 520 420 680 425"/>
+  <path class="association" d="M250 340 C380 405 520 490 680 506"/>
+  <path class="association" d="M500 443 V490"/>
+</svg>

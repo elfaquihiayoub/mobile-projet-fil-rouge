@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700" role="img" aria-labelledby="title description">
+  <title id="title">Diagramme de classes — Gestion de bibliothèque</title>
+  <desc id="description">Le modèle relie les classes Rayon, ExemplaireLivre, Adherent et Emprunt selon le schéma relationnel du rapport.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L10,5 L0,10 z" fill="#52617a"/>
+    </marker>
+    <style>
+      text { font-family: Aptos, "Segoe UI", sans-serif; fill: #172033; }
+      .classbox { fill: #fff; stroke: #4667a8; stroke-width: 2.5; }
+      .header { fill: #eaf0fb; }
+      .divider { stroke: #9aa9c2; stroke-width: 1.5; }
+      .name { font-size: 22px; font-weight: 700; }
+      .field { font-size: 18px; }
+      .rel { fill: none; stroke: #52617a; stroke-width: 2.5; marker-end: url(#arrow); }
+      .multiplicity { font-size: 16px; font-weight: 600; fill: #243b6b; }
+      .caption { font-size: 16px; fill: #52617a; }
+    </style>
+  </defs>
+  <rect x="20" y="20" width="1160" height="660" rx="18" fill="#f8fafc"/>
+
+  <rect class="classbox" x="50" y="105" width="270" height="220" rx="10"/>
+  <path class="header" d="M60 105 H310 Q320 105 320 115 V155 H50 V115 Q50 105 60 105 Z"/>
+  <text class="name" x="185" y="139" text-anchor="middle">Rayon</text>
+  <line class="divider" x1="50" y1="155" x2="320" y2="155"/>
+  <text class="field" x="72" y="190">id_rayon : int</text>
+  <text class="field" x="72" y="225">nom_rayon : string</text>
+  <text class="field" x="72" y="260">emplacement : string</text>
+
+  <rect class="classbox" x="455" y="85" width="340" height="290" rx="10"/>
+  <path class="header" d="M465 85 H785 Q795 85 795 95 V135 H455 V95 Q455 85 465 85 Z"/>
+  <text class="name" x="625" y="119" text-anchor="middle">ExemplaireLivre</text>
+  <line class="divider" x1="455" y1="135" x2="795" y2="135"/>
+  <text class="field" x="480" y="172">id_exemplaire : int</text>
+  <text class="field" x="480" y="207">titre : string</text>
+  <text class="field" x="480" y="242">auteur : string</text>
+  <text class="field" x="480" y="277">isbn : string</text>
+  <text class="field" x="480" y="312">etat : string</text>
+  <text class="field" x="480" y="347">id_rayon : int</text>
+
+  <rect class="classbox" x="50" y="410" width="300" height="205" rx="10"/>
+  <path class="header" d="M60 410 H340 Q350 410 350 420 V460 H50 V420 Q50 410 60 410 Z"/>
+  <text class="name" x="200" y="444" text-anchor="middle">Adherent</text>
+  <line class="divider" x1="50" y1="460" x2="350" y2="460"/>
+  <text class="field" x="72" y="495">id_adherent : int</text>
+  <text class="field" x="72" y="530">nom, prenom : string</text>
+  <text class="field" x="72" y="565">email : string</text>
+  <text class="field" x="72" y="600">telephone : string</text>
+
+  <rect class="classbox" x="765" y="390" width="365" height="290" rx="10"/>
+  <path class="header" d="M775 390 H1120 Q1130 390 1130 400 V440 H765 V400 Q765 390 775 390 Z"/>
+  <text class="name" x="947" y="424" text-anchor="middle">Emprunt</text>
+  <line class="divider" x1="765" y1="440" x2="1130" y2="440"/>
+  <text class="field" x="790" y="475">id_emprunt : int</text>
+  <text class="field" x="790" y="510">date_emprunt : date</text>
+  <text class="field" x="790" y="545">date_retour_prevue : date</text>
+  <text class="field" x="790" y="580">date_retour_reelle : date</text>
+  <text class="field" x="790" y="615">id_adherent : int</text>
+  <text class="field" x="790" y="650">id_exemplaire : int</text>
+
+  <path class="rel" d="M320 215 H455"/>
+  <text class="multiplicity" x="330" y="202">1</text>
+  <text class="multiplicity" x="432" y="202">0..*</text>
+  <text class="caption" x="387" y="244" text-anchor="middle">classe</text>
+
+  <path class="rel" d="M350 510 H765"/>
+  <text class="multiplicity" x="358" y="497">1</text>
+  <text class="multiplicity" x="740" y="497">0..*</text>
+  <text class="caption" x="557" y="539" text-anchor="middle">effectue</text>
+
+  <path class="rel" d="M625 375 V385 H1085 V390"/>
+  <text class="multiplicity" x="635" y="369">1</text>
+  <text class="multiplicity" x="1092" y="383">0..*</text>
+  <text class="caption" x="855" y="378" text-anchor="middle">concerne</text>
+</svg>

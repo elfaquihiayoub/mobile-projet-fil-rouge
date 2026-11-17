@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="460" viewBox="0 0 1200 460" role="img" aria-labelledby="title description">
+  <title id="title">Diagramme de contexte — Gestion de bibliothèque</title>
+  <desc id="description">Le bibliothécaire échange avec l’application de gestion, qui lit et enregistre les données dans MySQL.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L10,5 L0,10 z" fill="#4667a8"/>
+    </marker>
+    <marker id="arrow-start" markerWidth="10" markerHeight="10" refX="1" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M10,0 L0,5 L10,10 z" fill="#4667a8"/>
+    </marker>
+    <style>
+      text { font-family: Aptos, "Segoe UI", sans-serif; fill: #172033; }
+      .actor { fill: #fff; stroke: #4667a8; stroke-width: 3; }
+      .system { fill: #eaf0fb; stroke: #243b6b; stroke-width: 4; }
+      .store { fill: #fff; stroke: #4667a8; stroke-width: 3; }
+      .link { fill: none; stroke: #4667a8; stroke-width: 3; marker-start: url(#arrow-start); marker-end: url(#arrow); }
+      .label { font-size: 20px; font-weight: 600; }
+      .sub { font-size: 17px; fill: #52617a; }
+    </style>
+  </defs>
+  <rect x="34" y="34" width="1132" height="392" rx="22" fill="#f8fafc"/>
+  <rect class="actor" x="75" y="171" width="245" height="112" rx="18"/>
+  <text class="label" x="197" y="218" text-anchor="middle">Bibliothécaire</text>
+  <text class="sub" x="197" y="249" text-anchor="middle">Acteur principal</text>
+  <rect class="system" x="445" y="135" width="320" height="184" rx="22"/>
+  <text class="label" x="605" y="202" text-anchor="middle">Système de gestion</text>
+  <text class="label" x="605" y="232" text-anchor="middle">de bibliothèque</text>
+  <text class="sub" x="605" y="270" text-anchor="middle">Application Web</text>
+  <rect class="store" x="890" y="171" width="230" height="112" rx="18"/>
+  <text class="label" x="1005" y="218" text-anchor="middle">MySQL</text>
+  <text class="sub" x="1005" y="249" text-anchor="middle">Données de gestion</text>
+  <path class="link" d="M320 227 H445"/>
+  <path class="link" d="M765 227 H890"/>
+  <text class="sub" x="382" y="202" text-anchor="middle">Actions et demandes</text>
+  <text class="sub" x="827" y="202" text-anchor="middle">Lecture et écriture</text>
+</svg>
