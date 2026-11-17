@@ -31,7 +31,7 @@ Le schéma suivant présente le fonctionnement général de la méthode 2TUP.
 Les éléments entre crochets peuvent être remplacés par les informations
 propres à chaque projet.
 
-![schema](images.jpg)
+![schema](2TUP.jpg)
 
 **Figure [numéro] : Processus 2TUP appliqué à [Nom du projet]**
 

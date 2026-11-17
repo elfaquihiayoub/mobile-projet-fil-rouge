@@ -4,7 +4,7 @@
 
 La méthodologie Scrum est une méthodologie agile qui permet de gérer un projet de manière flexible et collaborative, en favorisant la livraison progressive de fonctionnalités. Elle repose sur l'itération, la priorisation des tâches et la communication régulière entre les membres de l'équipe. Dans le cadre de ce projet Promatch, nous avons organisé le travail selon les principes de Scrum, ce qui nous a permis de mieux planifier, suivre et livrer les différentes fonctionnalités de manière efficace.
 
-![Figure 3 : La méthode SCRUM](scrum.png)
+![Figure 3 : La méthode SCRUM](scrum.jpg)
 
 *Figure 3 : La méthode SCRUM*
 
