@@ -73,6 +73,21 @@ Cette distinction est importante : les données et le thème restent ceux de
 la bibliothèque, tandis que les versions du module Rayon servent à comparer
 les responsabilités et l’organisation du code.
 
+### Diagramme de contexte
+
+Le diagramme présente les interactions de l’application principale avec son
+acteur et son système de persistance. Le prototype autonome du module Rayon,
+qui utilise un fichier JSON, reste hors du périmètre de cette application.
+
+```mermaid
+graph LR
+    B[Bibliothecaire] --> A[Application]
+    A --> D[MySQL]
+    D --> A
+    A --> B
+```
+
+*Figure — Diagramme de contexte de l’application principale.*
 
 ## Cahier des charges
 
